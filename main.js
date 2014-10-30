@@ -38,6 +38,10 @@ App = {
       port: 8083,
       secure: false
     },
+    orientations: {
+      landscape: true,
+      portrait: false
+    },
     languages: [
       {iso: 'en', id: 0},
       {iso: 'ru', id: 1}
