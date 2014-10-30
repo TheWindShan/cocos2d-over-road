@@ -35,7 +35,7 @@ App = {
     },
     server: {
       url: 'www.tooflya.com',
-      port: 8082,
+      port: 8083,
       secure: false
     },
     languages: [
