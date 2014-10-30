@@ -53,12 +53,12 @@ var resources = {
     button1: 'resources/Graphics/button-1.png',
     popup1: 'resources/Graphics/popup-background-1.png',
 
-    music1: 'resources/Music/music-1.ogg',
-    button: 'resources/Sound/button.vaw',
-    change: 'resources/Sound/change.vaw',
-    start: 'resources/Sound/start.vaw',
-    crash: 'resources/Sound/crash.vaw',
-    counter: 'resources/Sound/counter.vaw'
+    music1: 'resources/Music/music-1.wav',
+    button: 'resources/Sound/button.wav',
+    change: 'resources/Sound/change.wav',
+    start: 'resources/Sound/start.wav',
+    crash: 'resources/Sound/crash.wav',
+    counter: 'resources/Sound/counter.wav'
   },
 
   system: {
