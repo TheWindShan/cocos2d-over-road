@@ -1,0 +1,17 @@
+{
+  "name": "over-road-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/"
+  },
+  "author": "",
+  "license": "?",
+  "dependencies": {
+    "socket.io": "0.9.16",
+    "mysql": "~2.3.2",
+    "mysql-utilities": "~1.0.5"
+  }
+}
