@@ -28,9 +28,15 @@
  */
 App = {
   config: {
+    debug: false,
     graphics: {
       x: 144,
       y: 160
+    },
+    server: {
+      url: 'www.tooflya.com',
+      port: 8082,
+      secure: false
     },
     languages: [
       {iso: 'en', id: 0},

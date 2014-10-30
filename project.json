@@ -9,6 +9,7 @@
 
   "modules": [
     "cocos2d",
-    "extensions"
+    "extensions",
+    "external"
   ]
 }
