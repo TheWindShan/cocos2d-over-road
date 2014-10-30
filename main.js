@@ -45,4 +45,4 @@ App = {
  * That's all - no more actions needed for launching game.
  *
  */
-cc.loader.loadJs("cocos2d-tooflya-sdk/main.js");
+cc.loader.loadJs("frameworks/main.js");
