@@ -1,0 +1,16 @@
+{
+  "packageUrl": "http://games.tooflya.com/over-road/updates/",
+  "remoteManifestUrl": "http://games.tooflya.com/over-road/updates/project.manifest",
+  "remoteVersionUrl": "http://games.tooflya.com/over-road/updates/version.manifest",
+  "version": "0.5.0",
+  "engineVersion": "3.1",
+  "assets": {
+  },
+
+  "searchPaths": [
+    "versions/0.5.0/update.zip": {
+      "md5": "DE75E68E15C9D19CEEC191E250CB5165",
+      "compressed": true
+    }
+  ]
+}
