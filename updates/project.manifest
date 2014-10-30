@@ -7,10 +7,10 @@
   "assets": {
   },
 
-  "searchPaths": [
+  "assets": {
     "versions/1.0.0/update.zip": {
       "md5": "DE75E68E15C9D19CEEC191E250CB5165",
       "compressed": true
     }
-  ]
+  }
 }
