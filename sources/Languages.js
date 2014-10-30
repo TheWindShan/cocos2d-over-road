@@ -58,6 +58,10 @@ var languages = {
     {title: 'Update successfully completed.', font: 'Retroville', size: 3, dimensions: false},
     {title: 'Обновление успешно завершено.', font: 'Retroville', size: 3, dimensions: false}
   ],
+  'update-finish': [
+    {title: 'Laters version installed.', font: 'Retroville', size: 3, dimensions: false},
+    {title: 'Установлена последняя версия.', font: 'Retroville', size: 3, dimensions: false}
+  ],
   'play': [
     {title: 'PLAY', font: 'Retroville', size: 4, dimensions: false},
     {title: 'ИГРАТЬ', font: 'Retroville', size: 4, dimensions: false}
