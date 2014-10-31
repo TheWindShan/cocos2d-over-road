@@ -37,6 +37,21 @@ var resources = {
     backgroundDecoration1en: 'resources/Graphics/background-decoration-1.0.png',
     backgroundDecoration1ru: 'resources/Graphics/background-decoration-1.1.png',
     backgroundDecoration1: 'resources/Graphics/background-decoration-1.png',
+    button1: 'resources/Graphics/button-1.png',
+    popup1: 'resources/Graphics/popup-background-1.png',
+
+    data1: 'resources/Graphics/main-1.plist',
+    value1: 'resources/Graphics/main-1.png',
+
+    music1: 'resources/Music/music-1.wav',
+    button: 'resources/Sound/button.wav',
+    change: 'resources/Sound/change.wav',
+    start: 'resources/Sound/start.wav',
+    crash: 'resources/Sound/crash.wav',
+    counter: 'resources/Sound/counter.wav'
+  },
+
+  frames: {
     backgroundDecoration2: 'resources/Graphics/background-decoration-2.png',
     backgroundDecoration3: 'resources/Graphics/background-decoration-3.png',
     backgroundDecoration4: 'resources/Graphics/background-decoration-4.png',
@@ -49,16 +64,7 @@ var resources = {
     car7: 'resources/Graphics/car-7.png',
     car8: 'resources/Graphics/car-8.png',
     particle1: 'resources/Graphics/particle-1.png',
-    particle2: 'resources/Graphics/particle-2.png',
-    button1: 'resources/Graphics/button-1.png',
-    popup1: 'resources/Graphics/popup-background-1.png',
-
-    music1: 'resources/Music/music-1.wav',
-    button: 'resources/Sound/button.wav',
-    change: 'resources/Sound/change.wav',
-    start: 'resources/Sound/start.wav',
-    crash: 'resources/Sound/crash.wav',
-    counter: 'resources/Sound/counter.wav'
+    particle2: 'resources/Graphics/particle-2.png'
   },
 
   system: {
