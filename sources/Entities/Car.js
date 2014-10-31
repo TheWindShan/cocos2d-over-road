@@ -314,12 +314,15 @@ Car = AnimatedEntity.extend({
    *
    */
   onSwipeUp: function() {
-    var x = this.getPosition().x;
-    var y = this.getPosition().y + this.swipe;
+    var x = this.x;
+    var y = this.y + this.swipe;
 
     this.runAction(
       cc.EaseSineOut.create(
-        cc.MoveTo.create(0.2, cc.p(x, y))
+        cc.MoveTo.create(0.2, {
+          x: x,
+          y: y
+        })
       )
     );
     this.runAction(
@@ -330,12 +333,15 @@ Car = AnimatedEntity.extend({
     );
   },
   onSwipeDown: function() {
-    var x = this.getPosition().x;
-    var y = this.getPosition().y - this.swipe;
+    var x = this.x;
+    var y = this.y - this.swipe;
 
     this.runAction(
       cc.EaseSineOut.create(
-        cc.MoveTo.create(0.2, cc.p(x, y))
+        cc.MoveTo.create(0.2, {
+          x: x,
+          y: y
+        })
       )
     );
     this.runAction(
@@ -348,12 +354,15 @@ Car = AnimatedEntity.extend({
   onSwipeRight: function() {
     // TODO: Check available.
     // TODO: Add wind animation.
-    var x = this.getPosition().x + this.swipe;
-    var y = this.getPosition().y;
+    var x = this.x + this.swipe;
+    var y = this.y;
 
     this.runAction(
       cc.EaseSineOut.create(
-        cc.MoveTo.create(0.2, cc.p(x, y))
+        cc.MoveTo.create(0.2, {
+          x: x,
+          y: y
+        })
       )
     );
     this.runAction(
@@ -367,12 +376,15 @@ Car = AnimatedEntity.extend({
   },
   onSwipeLeft: function() {
     // TODO: Check available.
-    var x = this.getPosition().x - this.swipe;
-    var y = this.getPosition().y;
+    var x = this.x - this.swipe;
+    var y = this.y;
 
     this.runAction(
       cc.EaseSineOut.create(
-        cc.MoveTo.create(0.3, cc.p(x, y))
+        cc.MoveTo.create(0.3, {
+          x: x,
+          y: y
+        })
       )
     );
   },
@@ -430,7 +442,7 @@ Car.Particle1 = Entity.extend({
    *
    */
   ctor: function() {
-    this._super(resources.main.particle1);
+    this._super(resources.frames.particle1);
 
     /**
      *
@@ -474,10 +486,8 @@ Car.Particle1 = Entity.extend({
     if(this.time.elapsed >= this.time.total) {
       this.destroy();
     } else {
-      var x = this.getPosition().x + this.speed.x * time;
-      var y = this.getPosition().y + this.speed.y * time;
-
-      this.setPosition(cc.p(x, y));
+      this.x += this.speed.x * time - Game.speed * time;
+      this.y += this.speed.y * time;
     }
   },
 
@@ -499,7 +509,7 @@ Car.Particle2 = Entity.extend({
    *
    */
   ctor: function() {
-    this._super(resources.main.particle2);
+    this._super(resources.frames.particle2);
 
     /**
      *

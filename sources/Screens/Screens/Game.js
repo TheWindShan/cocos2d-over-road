@@ -271,7 +271,7 @@ cc.Game = Screen.extend({
       });
 
       this.decoration1 = new Entity(resources.loading.decoration1, this);
-      this.decoration2 = new AnimatedEntity(resources.loading.decoration2, 1, 2, this);this.decoration2.retain();
+      this.decoration2 = new AnimatedEntity(resources.loading.decoration2, 1, 2, this);
       this.decoration3 = new NineEntity(resources.loading.decoration3, this, 1, 1, 1, 1);
 
       this.background.setAliasTexParameters();
@@ -532,7 +532,7 @@ cc.Game = Screen.extend({
       this.particles1 = new Manager(100, new Car.Particle1(), this.generator, true, cc.Game.layers.particles1);
       this.particles2 = new Manager(100, new Car.Particle2(), this.generator, true, cc.Game.layers.particles2);
 
-      this.player = new Car(resources.main.car1, this.generator);
+      this.player = new Car(resources.frames.car1, this.generator);
 
       this.generator.create();
     }
