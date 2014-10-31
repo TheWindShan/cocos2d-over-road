@@ -21,8 +21,7 @@
  *
  */
 
-// TODO: Make extends from cc.SpriteBatchNode.
-Generator = Entity.extend({
+Generator = cc.SpriteBatchNode.extend({
 
   /**
    *
@@ -30,7 +29,7 @@ Generator = Entity.extend({
    *
    */
   ctor: function(parent) {
-    this._super(false, parent);
+    this._super(resources.main.value1);
 
     /**
      *
@@ -38,6 +37,13 @@ Generator = Entity.extend({
      *
      */
     this.holder = parent;
+
+    /**
+     *
+     * Extend second class.
+     *
+     */
+    Entity.prototype.ctor.call(this, false, parent, false, true);
   },
 
   /**
@@ -46,27 +52,27 @@ Generator = Entity.extend({
    *
    */
   onCreate: function() {
-    this._super();
+    Entity.prototype.onCreate.call(this);
 
     this.donators = {
       road: [
-        new Manager(2, new Road(resources.main.backgroundDecoration2), this, false, cc.Game.layers.road),
-        new Manager(2, new Road(resources.main.backgroundDecoration3), this, false, cc.Game.layers.road),
-        new Manager(2, new Road(resources.main.backgroundDecoration4), this, false, cc.Game.layers.road)
+        new Manager(2, new Road(resources.frames.backgroundDecoration2), this, false, cc.Game.layers.road),
+        new Manager(2, new Road(resources.frames.backgroundDecoration3), this, false, cc.Game.layers.road),
+        new Manager(2, new Road(resources.frames.backgroundDecoration4), this, false, cc.Game.layers.road)
       ],
       cars: [
-        new Manager(2, new Car(resources.main.car2), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.main.car3), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.main.car4), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.main.car5), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.main.car6), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.main.car7), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.main.car8), this, false, cc.Game.layers.cars)
+        new Manager(2, new Car(resources.frames.car2), this, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car3), this, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car4), this, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car5), this, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car6), this, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car7), this, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car8), this, false, cc.Game.layers.cars)
       ]
     };
   },
   onDestroy: function() {
-    this._super();
+    Entity.prototype.onDestroy.call(this);
   },
 
   /**
@@ -84,25 +90,35 @@ Generator = Entity.extend({
    * 
    *
    */
+  getAll: function(elements) {
+    var result = [];
+    for(var i = 0; i < elements.length; i++) {
+      for(var j = 0; j < elements[i].count().count; j++) {
+        result.push(elements[i].get(j));
+      }
+    }
+
+    return result;
+  },
+
+  /**
+   *
+   * 
+   *
+   */
   findRoad: function(callbacks) {
-    var count = 0;
     var max = {
       element: false,
       x: -1
     };
 
-    this.getChildren().each(function(element) {
-      if(element instanceof Road) {
-        if(element.created) {
-          count++;
-
-          if(element.getPosition().x > max.x) {
-            max = {
-              element: element,
-              x: element.getPosition().x
-            };
-          }
-        }
+    var roads = this.getAll(this.donators.road);
+    roads.each(function(element) {
+      if(element.getPosition().x > max.x) {
+        max = {
+          element: element,
+          x: element.getPosition().x
+        };
       }
     });
 
@@ -111,7 +127,7 @@ Generator = Entity.extend({
      * Generator is empty.
      *
      */
-    if(max.x === -1 && count < 1) {
+    if(max.x === -1 && roads.length < 1) {
       if(callbacks) {
         if(callbacks.empty) {
           callbacks.empty();
@@ -133,24 +149,11 @@ Generator = Entity.extend({
     }
   },
   findCars: function(callbacks) {
-    var count = 0;
+    var cars = this.getAll(this.donators.cars).concat([Game.player]);
 
-    var cars = [];
-    this.getChildren().each(function(element) {
-      if(element instanceof Car) {
-        if(element.created) {
-          count++;
+    var y = this.findCarPosition(cars);
 
-          element.collide = false;
-
-          cars.push(element);
-        }
-      }
-    });
-
-    var y = this.findCarPosition();
-
-    if(count < (Game.parameters.state === cc.Game.states.animation ? 2 : 5) && y) { // TODO: Adjust difficult level.
+    if(cars.length < (Game.parameters.state === cc.Game.states.animation ? 3 : 3) && y) { // TODO: Adjust difficult level.
       var donator = this.donators.cars.random();
 
       donator.create().attr({
@@ -167,51 +170,40 @@ Generator = Entity.extend({
       cars.push(donator.last());
     }
 
+    this.sortCars(cars);
+  },
+  sortCars: function(cars) {
+
     /**
      *
-     * Need to sort all cars by y.
+     * Need to sort all cars by y first.
      *
      */
-    this.sortCars(cars);
+    var zindex = cc.Game.layers.cars;
+    cars.sort(function(element1, element2) {
+      return (element2.y + element2.getHeight() / 2) - (element1.y + element2.getHeight() / 2);
+    });
 
     /**
      *
      * Find collissions.
      *
      */
-    this.intersectCars(cars);
-  },
-  sortCars: function(cars) {
-    var zindex = cc.Game.layers.cars;
-    cars.sort(function(element1, element2) {
-      var y1 = element1.getPosition().y;
-      var y2 = element2.getPosition().y;
-
-      return y2 - y1;
-    });
-    cars.each(function(element) {
-      element.setLocalZOrder(zindex++);
-    }.bind(this));
-  },
-  intersectCars: function(cars) {
     cars.each(function(element1) {
-      var next = cars.slice(0);
+      element1.setLocalZOrder(++zindex);
 
-      this.counterCars(element1);
+      this.counterCar(element1);
 
-      next.remove(element1);
-      next.each(function(element2) {
+      cars.copy(element1).each(function(element2) {
         if(element1.collideWidth(element2)) {
           element1.collide = element2;
+          element1.onCollide(element1, element2);
         }
-      }.bind(this));
-
-      if(element1.collide) {
-        element1.onCollide(element1, element1.collide);
-      }
+      });
     }.bind(this));
+    this.reorderBatch(true);
   },
-  counterCars: function(car) {
+  counterCar: function(car) {
     if(Game.parameters.state === cc.Game.states.running) {
       if(!car.parameters.countered) {
         if(car.getPosition().x < Game.player.getPosition().x) {
@@ -226,25 +218,18 @@ Generator = Entity.extend({
 
     return false;
   },
-  findCarPosition: function(attempt) {
+  findCarPosition: function(cars, attempt) {
     attempt = attempt ? ++attempt : 1;
 
     var candidate = random(Camera.center.y / 2, Camera.height - Camera.center.y / 2);
-    var clear = true;
 
-    this.getChildren().each(function(element) {
-      if(clear) {
-        if(element instanceof Car) {
-          if(element.created && !element.parameters.management) {
-            if(Math.abs(candidate - element.getPosition().y) < element.getHeight()) {
-              clear = false;
-            }
-          }
-        }
+    if(cars.length < 2 || cars.some(function(element) {
+      if(element.created && !element.parameters.management) {
+        if(Math.abs(candidate - element.y) > element.getHeight()) return true;
       }
-    });
+    })) { return candidate; }
 
-    return clear ? candidate : (attempt > 10 ? false : this.findCarPosition(attempt));
+    return (attempt > 2 ? false : this.findCarPosition(cars, attempt));
   },
 
   /**
@@ -252,37 +237,6 @@ Generator = Entity.extend({
    * 
    *
    */
-  updatePrepare: function(time) {
-    var donator = this.donators.road[2];
-
-    /**
-     *
-     * Finding road.
-     *
-     */
-    this.findRoad({
-      empty: function() {
-        donator.create().setPosition(Camera.center.x, Camera.center.y);
-      }.bind(this),
-      create: function(element) {
-        donator.create().setPosition(element.getPosition().x + element.getWidth() / 2 + donator.last().getWidth() / 2, Camera.center.y);
-        donator.last().update(0.02);
-      }.bind(this)
-    });
-
-    var cars = [];
-    this.getChildren().each(function(element) {
-      if(element instanceof Car) {
-        if(element.created) {
-          element.collide = false;
-
-          cars.push(element);
-        }
-      }
-    });
-    this.sortCars(cars);
-    this.intersectCars(cars);
-  },
   updateRunning: function(time) {
     var donator = Game.parameters.state === cc.Game.states.animation ? this.donators.road[2] : this.donators.road.random();
 
@@ -325,8 +279,6 @@ Generator = Entity.extend({
     switch(this.holder.parameters.state) {
       case cc.Game.states.prepare:
       case cc.Game.states.finish:
-      this.updatePrepare(time);
-      break;
       case cc.Game.states.running:
       case cc.Game.states.animation:
       this.updateRunning(time);
@@ -334,8 +286,6 @@ Generator = Entity.extend({
     }
   },
   update: function(time) {
-    this._super(time);
-
     this.updateStates(time);
   },
 
