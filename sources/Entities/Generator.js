@@ -37,6 +37,7 @@ Generator = cc.SpriteBatchNode.extend({
      *
      */
     this.holder = parent;
+    this.counter = 0;
 
     /**
      *
@@ -147,13 +148,15 @@ Generator = cc.SpriteBatchNode.extend({
         }
       }
     }
+
+    this.sortRoads(this.getAll(this.donators.road));
   },
   findCars: function(callbacks) {
     var cars = this.getAll(this.donators.cars).concat([Game.player]);
 
     var y = this.findCarPosition(cars);
 
-    if(cars.length < (Game.parameters.state === cc.Game.states.animation ? 3 : 3) && y) { // TODO: Adjust difficult level.
+    if(cars.length < (Game.parameters.type === cc.Game.types.arcade ? 5 : 3) && y) {
       var donator = this.donators.cars.random();
 
       donator.create().attr({
@@ -163,7 +166,9 @@ Generator = cc.SpriteBatchNode.extend({
 
       if(callbacks) {
         if(callbacks.create) {
-          callbacks.create(donator.last());
+          if(Game.parameters.state !== cc.Game.states.prepare) {
+            callbacks.create(donator.last());
+          }
         }
       }
 
@@ -171,6 +176,22 @@ Generator = cc.SpriteBatchNode.extend({
     }
 
     this.sortCars(cars);
+  },
+  sortRoads: function(roads) {
+
+    /**
+     *
+     * Need to sort all roads by y.
+     *
+     */
+    var zindex = cc.Game.layers.road;
+    roads.sort(function(element1, element2) {
+      return element2.x - element1.x;
+    });
+
+    roads.each(function(element1) {
+      element1.setLocalZOrder(++zindex);
+    });
   },
   sortCars: function(cars) {
 
@@ -209,9 +230,13 @@ Generator = cc.SpriteBatchNode.extend({
         if(car.getPosition().x < Game.player.getPosition().x) {
           car.parameters.countered = true;
 
-          Game.onCounter();
+          if(Game.parameters.type === cc.Game.types.survival || ++this.counter > 10) {
+            this.counter = 0;
 
-          return true;
+            Game.onCounter();
+
+            return true;
+          }
         }
       }
     }
@@ -221,7 +246,7 @@ Generator = cc.SpriteBatchNode.extend({
   findCarPosition: function(cars, attempt) {
     attempt = attempt ? ++attempt : 1;
 
-    var candidate = random(Camera.center.y / 2, Camera.height - Camera.center.y / 2);
+    var candidate = random(0, Camera.height);// random(Camera.center.y / 2, Camera.height - Camera.center.y / 2);
 
     if(cars.length < 2 || cars.some(function(element) {
       if(element.created && !element.parameters.management) {
@@ -295,6 +320,8 @@ Generator = cc.SpriteBatchNode.extend({
    *
    */
   clear: function() {
+    this.counter = 0;
+
     this.donators.cars.each(function(element) {
       element.clear();
     });

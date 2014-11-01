@@ -47,8 +47,18 @@ var resources = {
     button: 'resources/Sound/button.wav',
     change: 'resources/Sound/change.wav',
     start: 'resources/Sound/start.wav',
-    crash: 'resources/Sound/crash.wav',
-    counter: 'resources/Sound/counter.wav'
+    counter: 'resources/Sound/counter.wav',
+
+    skid01: 'resources/Sound/skid-01.wav',
+    skid02: 'resources/Sound/skid-02.wav',
+    skid03: 'resources/Sound/skid-03.wav',
+    skid04: 'resources/Sound/skid-04.wav',
+
+    crash01: 'resources/Sound/crash-01.wav',
+    crash02: 'resources/Sound/crash-02.wav',
+    crash03: 'resources/Sound/crash-03.wav',
+    crash04: 'resources/Sound/crash-04.wav',
+    crash05: 'resources/Sound/crash-05.wav'
   },
 
   frames: {
@@ -65,6 +75,23 @@ var resources = {
     car8: 'resources/Graphics/car-8.png',
     particle1: 'resources/Graphics/particle-1.png',
     particle2: 'resources/Graphics/particle-2.png'
+  },
+
+  sound: {
+    skid: [
+      [
+      'resources/Sound/skid-01.wav',
+      'resources/Sound/skid-02.wav',
+      'resources/Sound/skid-03.wav',
+      'resources/Sound/skid-04.wav'
+      ]
+    ],
+    crash: [
+      'resources/Sound/crash-02.wav',
+      'resources/Sound/crash-03.wav',
+      'resources/Sound/crash-04.wav',
+      'resources/Sound/crash-05.wav'
+    ]
   },
 
   system: {

@@ -62,10 +62,10 @@ Car = AnimatedEntity.extend({
       management: false,
       countered: false,
       state: false,
-      repair: random(10, 100),
+      repair: 100,
       speed: {
-        x: Camera.coord(random(-200.0, -50.0)),
-        y: Camera.coord(random(-2.0, 2.0))
+        x: Camera.coord(random(-100.0, -50.0)),
+        y: Camera.coord(random(-3.0, 3.0))
       },
       crash: false
     };
@@ -188,6 +188,16 @@ Car = AnimatedEntity.extend({
         );
 
         return true;
+      } else {
+        if(Game.parameters.type === cc.Game.types.arcade) {
+          this.parameters.repair -= 1.0;
+
+          if(this.parameters.repair > 0) {
+            this.changeState(Car.states.move);
+
+            return true;
+          }
+        }
       }
 
       Game.changeState(cc.Game.states.finish);
@@ -215,6 +225,8 @@ Car = AnimatedEntity.extend({
       this.runAction(
         cc.RotateTo.create(0.7, random(0, 10) * (this.parameters.crash.y > 0 ? -1 : 1))
       );
+
+      Sound.play(resources.sound.crash.random());
     } else {
       // Low repair.
     }
@@ -486,7 +498,7 @@ Car.Particle1 = Entity.extend({
     if(this.time.elapsed >= this.time.total) {
       this.destroy();
     } else {
-      this.x += this.speed.x * time - Game.speed * time;
+      this.x += this.speed.x * time - Game.speed / 2 * time;
       this.y += this.speed.y * time;
     }
   },

@@ -62,6 +62,14 @@ var languages = {
     {title: 'Laters version installed.', font: 'Retroville', size: 3, dimensions: false},
     {title: 'Установлена последняя версия.', font: 'Retroville', size: 3, dimensions: false}
   ],
+  'mode-1': [
+    {title: 'ARCADE', font: 'Retroville', size: 4, dimensions: false},
+    {title: 'АРКАДА', font: 'Retroville', size: 4, dimensions: false}
+  ],
+  'mode-2': [
+    {title: 'SURVIVAL', font: 'Retroville', size: 3, dimensions: false},
+    {title: 'ВЫЖИВАНИЕ', font: 'Retroville', size: 3, dimensions: false}
+  ],
   'play': [
     {title: 'PLAY', font: 'Retroville', size: 4, dimensions: false},
     {title: 'ИГРАТЬ', font: 'Retroville', size: 4, dimensions: false}

@@ -46,12 +46,14 @@ cc.Game = Screen.extend({
     this.complete = false;
     this.parameters = {
       state: false,
+      type: false,
       views: {
         view1: false,
         view2: false,
         view3: false,
         view4: false,
         view5: false,
+        view6: false,
 
         stack: {
           pushed: [],
@@ -456,17 +458,48 @@ cc.Game = Screen.extend({
 
     return this.parameters.views.view5;
   },
+  createView6: function() {
+    if(!this.parameters.views.view6) {
+      this.parameters.views.view6 = new Background(this);
+      this.parameters.views.view6.push = 0;
+      this.parameters.views.view6.attr({
+        x: Camera.width,
+        y: 0,
+        zIndex: cc.Game.layers.views
+      });
+
+      this.parameters.views.view6.button1 = new Button(resources.main.button1, this.parameters.views.view6, 1, 1, 1, 2, this.onBack.bind(this), 'back');
+      this.parameters.views.view6.button2 = new Button(resources.main.button1, this.parameters.views.view6, 1, 1, 1, 2, this.onPlaySurvival.bind(this), 'mode-2');
+      this.parameters.views.view6.button3 = new Button(resources.main.button1, this.parameters.views.view6, 1, 1, 1, 2, this.onPlayArcade.bind(this), 'mode-1');
+      this.parameters.views.view6.button1.create().attr({
+        x: Camera.center.x,
+        y: Camera.center.y - Camera.coord(30)
+      });
+      this.parameters.views.view6.button2.create().attr({
+        x: Camera.center.x,
+        y: Camera.center.y - Camera.coord(15)
+      });
+      this.parameters.views.view6.button3.create().attr({
+        x: Camera.center.x,
+        y: Camera.center.y
+      });
+    }
+
+    return this.parameters.views.view6;
+  },
   destroyViews: function() {
-    if(this.parameters.views.view2) { this.createView2().destroy(Entity.destroy.complete); this.parameters.views.view2 = false }
-    if(this.parameters.views.view3) { this.createView3().destroy(Entity.destroy.complete); this.parameters.views.view3 = false }
-    if(this.parameters.views.view4) { this.createView4().destroy(Entity.destroy.complete); this.parameters.views.view4 = false }
-    if(this.parameters.views.view5) { this.createView5().destroy(Entity.destroy.complete); this.parameters.views.view5 = false }
+    if(this.parameters.views.view2) { this.createView2().destroy(Entity.destroy.complete); this.parameters.views.view2 = false; }
+    if(this.parameters.views.view3) { this.createView3().destroy(Entity.destroy.complete); this.parameters.views.view3 = false; }
+    if(this.parameters.views.view4) { this.createView4().destroy(Entity.destroy.complete); this.parameters.views.view4 = false; }
+    if(this.parameters.views.view5) { this.createView5().destroy(Entity.destroy.complete); this.parameters.views.view5 = false; }
+    if(this.parameters.views.view6) { this.createView6().destroy(Entity.destroy.complete); this.parameters.views.view6 = false; }
     this.parameters.views = {
       view1: false,
       view2: false,
       view3: false,
       view4: false,
       view5: false,
+      view6: false,
       stack: {
         pushed: [],
         current: false
@@ -548,6 +581,20 @@ cc.Game = Screen.extend({
         cc.MoveTo.create(1.0, cc.p(Camera.center.x / 2 - Camera.coord(15), Camera.center.y - Camera.coord(10)))
       )
     );
+
+    /**
+     *
+     * Show ads.
+     *
+     */
+    Ad.Admob.show(cc.Ad.Banner, {
+      success: function() {
+        // TODO: Move bottom buttons up to 10px.
+      },
+      error: function() {
+        // TODO: Move bottom buttons down to 10px.
+      }
+    });
   },
 
   /**
@@ -571,7 +618,11 @@ cc.Game = Screen.extend({
     this.onTouch();
   },
   onSwipe: function(touch, e) {
-    if(this.parameters.state === cc.Game.states.running) {
+    switch(this.parameters.state) {
+      case cc.Game.states.prepare:
+      this.changeState(cc.Game.states.running);
+      return true;
+      case cc.Game.states.running:
       return this.player.getNumberOfRunningActions() < 1;
     }
 
@@ -582,28 +633,28 @@ cc.Game = Screen.extend({
       this.player.onSwipeUp();
     }
 
-    Sound.play(resources.main.change);
+    Sound.play(resources.sound.skid[0].random());
   },
   onSwipeDown: function() {
     if(this.parameters.state === cc.Game.states.running) {
       this.player.onSwipeDown();
     }
 
-    Sound.play(resources.main.change);
+    Sound.play(resources.sound.skid[0].random());
   },
   onSwipeRight: function() {
     if(this.parameters.state === cc.Game.states.running) {
       this.player.onSwipeRight();
     }
 
-    Sound.play(resources.main.change);
+    Sound.play(resources.sound.skid[0].random());
   },
   onSwipeLeft: function() {
     if(this.parameters.state === cc.Game.states.running) {
       this.player.onSwipeLeft();
     }
 
-    Sound.play(resources.main.change);
+    Sound.play(resources.sound.skid[0].random());
   },
   onTouch: function() {
     switch(this.parameters.state) {
@@ -653,7 +704,7 @@ cc.Game = Screen.extend({
     Sound.play(resources.main.start);
   },
   onFinish: function() {
-    Sound.play(resources.main.crash);
+    Sound.play(resources.main.crash01);
 
     Game.speed = 0;
 
@@ -663,6 +714,13 @@ cc.Game = Screen.extend({
         cc.MoveTo.create(0.5, cc.p(Camera.center.x, Camera.height + this.text2.getHeightScaled())),
         cc.CallFunc.create(function() {
           Finish.show(Game);
+
+          /**
+           *
+           * Show ads.
+           *
+           */
+          Ad.Admob.show(cc.Ad.Intersstitial, false);
         })
       )
     );
@@ -692,17 +750,27 @@ cc.Game = Screen.extend({
   },
   onRate: function() {
     // TODO: Open rate window.
-    Sound.play(resources.main.change);
   },
   onMore: function() {
     this.changeView(this.createView2(), this.createView3());
   },
   onPlaySingle: function() {
-    this.changeView(this.createView4());
-    this.changeState(cc.Game.states.prepare);
+    this.changeView(this.createView4(), this.createView6());
   },
   onPlayOnline: function() {
     Sound.play(resources.main.change);
+  },
+  onPlayArcade: function() {
+    this.parameters.type = cc.Game.types.arcade;
+
+    this.changeView(this.createView4());
+    this.changeState(cc.Game.states.prepare);
+  },
+  onPlaySurvival: function() {
+    this.parameters.type = cc.Game.types.survival;
+
+    this.changeView(this.createView4());
+    this.changeState(cc.Game.states.prepare);
   },
   onSettings: function() {
     this.changeView(this.createView3(), this.createView5());
@@ -885,14 +953,21 @@ cc.Game.states = {
   running: 3,
   finish: 4
 };
+
+cc.Game.types = {
+  arcade: 1,
+  survival: 2
+};
+
 cc.Game.layers = {
   road: 10,
   cars: 20,
   particles1: 30,
-  particles2: 12,
+  particles2: 20,
   views: 40,
   top: 10000
 };
+
 cc.Game.loaded = false;
 cc.Game.created = false;
 cc.Game.onStart = function() {
