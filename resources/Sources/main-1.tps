@@ -74,7 +74,7 @@
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
-        <uint>7</uint>
+        <uint>0</uint>
         <key>webpQualityLevel</key>
         <uint>101</uint>
         <key>textureSubPath</key>
@@ -98,7 +98,7 @@
             <int>-1</int>
         </QSize>
         <key>reduceBorderArtifacts</key>
-        <true/>
+        <false/>
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
@@ -153,7 +153,7 @@
         <key>forceIdenticalLayout</key>
         <false/>
         <key>outputFormat</key>
-        <enum type="SettingsBase::OutputFormat">RGB565</enum>
+        <enum type="SettingsBase::OutputFormat">RGBA5551</enum>
         <key>contentProtection</key>
         <struct type="ContentProtection">
             <key>key</key>
@@ -166,7 +166,7 @@
         <key>prependSmartFolderName</key>
         <false/>
         <key>cleanTransparentPixels</key>
-        <true/>
+        <false/>
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
@@ -176,7 +176,7 @@
             <key>innerPadding</key>
             <uint>0</uint>
             <key>extrude</key>
-            <uint>2</uint>
+            <uint>0</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMode</key>
@@ -188,9 +188,19 @@
         </struct>
         <key>fileList</key>
         <array>
+            <filename>particle-2.png</filename>
             <filename>background-decoration-4.png</filename>
             <filename>background-decoration-2.png</filename>
             <filename>background-decoration-3.png</filename>
+            <filename>car-1.png</filename>
+            <filename>car-2.png</filename>
+            <filename>car-3.png</filename>
+            <filename>car-4.png</filename>
+            <filename>car-5.png</filename>
+            <filename>car-6.png</filename>
+            <filename>car-7.png</filename>
+            <filename>car-8.png</filename>
+            <filename>particle-1.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

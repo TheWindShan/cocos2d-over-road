@@ -43,6 +43,136 @@
                 <key>sourceSize</key>
                 <string>{320,144}</string>
             </dict>
+            <key>car-1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{326,406},{26,36}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{26,36}}</string>
+                <key>sourceSize</key>
+                <string>{26,36}</string>
+            </dict>
+            <key>car-2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{326,298},{48,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{48,54}}</string>
+                <key>sourceSize</key>
+                <string>{48,54}</string>
+            </dict>
+            <key>car-3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{326,356},{36,46}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{36,46}}</string>
+                <key>sourceSize</key>
+                <string>{36,46}</string>
+            </dict>
+            <key>car-4.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{399,344},{23,42}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{23,42}}</string>
+                <key>sourceSize</key>
+                <string>{23,42}</string>
+            </dict>
+            <key>car-5.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{399,390},{35,40}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{35,40}}</string>
+                <key>sourceSize</key>
+                <string>{35,40}</string>
+            </dict>
+            <key>car-6.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{414,298},{23,42}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{23,42}}</string>
+                <key>sourceSize</key>
+                <string>{23,42}</string>
+            </dict>
+            <key>car-7.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{378,298},{32,42}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,42}}</string>
+                <key>sourceSize</key>
+                <string>{32,42}</string>
+            </dict>
+            <key>car-8.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{366,356},{29,44}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{29,44}}</string>
+                <key>sourceSize</key>
+                <string>{29,44}</string>
+            </dict>
+            <key>particle-1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{356,406},{8,8}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{8,8}}</string>
+                <key>sourceSize</key>
+                <string>{8,8}</string>
+            </dict>
+            <key>particle-2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{378,344},{3,1}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{3,1}}</string>
+                <key>sourceSize</key>
+                <string>{3,1}</string>
+            </dict>
         </dict>
         <key>metadata</key>
         <dict>
@@ -53,7 +183,7 @@
             <key>size</key>
             <string>{644,444}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:7507f379878c6a44e85f99009318b211:6f465f507568fc9bf17ffeb9cacf2b10:835b396ffa78eb41de25bd633a5de3c2$</string>
+            <string>$TexturePacker:SmartUpdate:fa6de5ce579219376ac94a4bf124a991:29403ede185a05479127993317924989:835b396ffa78eb41de25bd633a5de3c2$</string>
             <key>textureFileName</key>
             <string>main-1.png</string>
         </dict>
