@@ -29,11 +29,11 @@ Text.prototype.export = function() {
     switch(cc.sys.platform) {
       default:
       case cc.sys.ANDROID:
-      width = Camera.real(1);
+      width = Camera.r(1);
       break;
       case cc.sys.DESKTOP_BROWSER:
       case cc.sys.MOBILE_BROWSER:
-      width = Camera.real(0.5);
+      width = Camera.r(0.5);
       break;
     }
 

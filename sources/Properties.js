@@ -28,11 +28,13 @@ var properties = {
 
   music: 1,
   sound: 2,
-  language: 3,
+  vibrate: 3,
+  language: 4,
+  ad: 5,
   info: {
-    id: 4,
-    name: 5,
-    surname: 6,
-    photo: 7
+    id: 6,
+    name: 7,
+    surname: 8,
+    photo: 9
   }
 };

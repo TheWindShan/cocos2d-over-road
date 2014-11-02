@@ -43,6 +43,9 @@ var resources = {
     data1: 'resources/Graphics/main-1.plist',
     value1: 'resources/Graphics/main-1.png',
 
+    data2: 'resources/Graphics/main-2.plist',
+    value2: 'resources/Graphics/main-2.png',
+
     music1: 'resources/Music/music-1.wav',
     button: 'resources/Sound/button.wav',
     change: 'resources/Sound/change.wav',

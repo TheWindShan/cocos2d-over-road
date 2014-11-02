@@ -37,10 +37,7 @@ Car = AnimatedEntity.extend({
      *
      */
     this.type = file;
-    this.swipe = Camera.coord(15);
-
-    this.particles1 = Game.particles1;
-    this.particles2 = Game.particles2;
+    this.swipe = Camera.s(15);
 
     /**
      *
@@ -58,14 +55,17 @@ Car = AnimatedEntity.extend({
   onCreate: function() {
     this._super();
 
+    this.particles1 = Game.particles1;
+    this.particles2 = Game.particles2;
+
     this.parameters = {
       management: false,
       countered: false,
       state: false,
       repair: 100,
       speed: {
-        x: Camera.coord(random(-100.0, -50.0)),
-        y: Camera.coord(random(-3.0, 3.0))
+        x: Camera.s(random(-100.0, -50.0)),
+        y: Camera.s(random(-3.0, 3.0))
       },
       crash: false
     };
@@ -104,9 +104,9 @@ Car = AnimatedEntity.extend({
 
     if(this.parameters.management && this.getNumberOfRunningActions() < 1) {
       if(Game.parameters.state === cc.Game.states.animation || Game.parameters.state === cc.Game.states.prepare) {
-        var c = Camera.center.y - Camera.coord(10);
+        var c = Camera.center.y - Camera.s(10);
         if(y > c || y < c) {
-          y += Camera.coord(y > c ? -0.1 : 0.1);
+          y += Camera.s(y > c ? -0.1 : 0.1);
         }
       }
     }
@@ -161,6 +161,8 @@ Car = AnimatedEntity.extend({
   },
   onCrash: function() {
     if(this.parameters.management) {
+      Vibrator.vibrate(10);
+
       if(Game.parameters.state === cc.Game.states.animation || Game.parameters.state === cc.Game.states.prepare) {
         this.changeState(Car.states.move);
 
@@ -169,8 +171,8 @@ Car = AnimatedEntity.extend({
         this.parameters.crash.x /= length;
         this.parameters.crash.y /= length;
 
-        this.parameters.crash.x *= Camera.coord(1);
-        this.parameters.crash.y *= Camera.coord(1);
+        this.parameters.crash.x *= Camera.s(1);
+        this.parameters.crash.y *= Camera.s(1);
 
         var x = this.getPosition().x;
         var y = this.getPosition().y + this.parameters.crash.y;
@@ -211,8 +213,8 @@ Car = AnimatedEntity.extend({
       this.parameters.crash.x /= length;
       this.parameters.crash.y /= length;
 
-      this.parameters.crash.x *= Camera.coord(this.parameters.management ? 10 : (Game.parameters.state === cc.Game.states.animation || Game.parameters.state === cc.Game.states.prepare ? 150 : 50));
-      this.parameters.crash.y *= Camera.coord(this.parameters.management ? 10 : (Game.parameters.state === cc.Game.states.animation || Game.parameters.state === cc.Game.states.prepare ? 150 : 50));
+      this.parameters.crash.x *= Camera.s(this.parameters.management ? 10 : (Game.parameters.state === cc.Game.states.animation || Game.parameters.state === cc.Game.states.prepare ? 50 : 50));
+      this.parameters.crash.y *= Camera.s(this.parameters.management ? 10 : (Game.parameters.state === cc.Game.states.animation || Game.parameters.state === cc.Game.states.prepare ? 50 : 50));
 
       var x = this.getPosition().x + this.parameters.crash.x;
       var y = this.getPosition().y + this.parameters.crash.y;
@@ -384,7 +386,7 @@ Car = AnimatedEntity.extend({
       )
     );
 
-    Game.speed += Camera.coord(1);
+    Game.speed += Camera.s(1);
   },
   onSwipeLeft: function() {
     // TODO: Check available.
@@ -473,8 +475,8 @@ Car.Particle1 = Entity.extend({
     this._super();
 
     this.speed = {
-      x: Camera.coord(random(-10, 10)),
-      y: Camera.coord(random(1, 10))
+      x: Camera.s(random(-10, 10)),
+      y: Camera.s(random(1, 10))
     };
     this.time = {
       total: 1.0,

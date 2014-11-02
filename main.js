@@ -30,8 +30,8 @@ App = {
   config: {
     debug: false,
     graphics: {
-      x: 144,
-      y: 160
+      x: 320,
+      y: 144
     },
     server: {
       url: 'www.tooflya.com',
@@ -39,8 +39,8 @@ App = {
       secure: false
     },
     orientations: {
-      landscape: true,
-      portrait: false
+      portrait: true,
+      landscape: true
     },
     languages: [
       {iso: 'en', id: 0},

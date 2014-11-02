@@ -102,6 +102,14 @@ var languages = {
     {title: 'SOUND OFF', font: 'Retroville', size: 3, dimensions: false},
     {title: 'ЗВУКИ ВЫКЛ', font: 'Retroville', size: 3, dimensions: false}
   ],
+  'vibrate-on': [
+    {title: 'VIBRATE ON', font: 'Retroville', size: 3, dimensions: false},
+    {title: 'ВИБРО ВКЛ', font: 'Retroville', size: 3, dimensions: false}
+  ],
+  'vibrate-off': [
+    {title: 'VIBRATE OFF', font: 'Retroville', size: 3, dimensions: false},
+    {title: 'ВИБРО ВЫКЛ', font: 'Retroville', size: 3, dimensions: false}
+  ],
   'language-en': [
     {title: 'ENGLISH', font: 'Retroville', size: 3, dimensions: false},
     {title: 'ENGLISH', font: 'Retroville', size: 3, dimensions: false}

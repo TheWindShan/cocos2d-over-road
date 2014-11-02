@@ -41,8 +41,8 @@ cc.Finish = Popup.extend({
     this.button3 = new Button(resources.main.button1, this, 1, 1, 1, 2, false, 'menu');
 
     this.button1.create().attr({x: this.size.center.x, y: this.size.center.y});
-    this.button2.create().attr({x: this.size.center.x, y: this.size.center.y - Camera.coord(15)});
-    this.button3.create().attr({x: this.size.center.x, y: this.size.center.y - Camera.coord(30)});
+    this.button2.create().attr({x: this.size.center.x, y: this.size.center.y - Camera.c(15).y});
+    this.button3.create().attr({x: this.size.center.x, y: this.size.center.y - Camera.c(30).y});
 
     this.button1.setAliasTexParameters();
     this.button2.setAliasTexParameters();
@@ -54,6 +54,14 @@ cc.Finish = Popup.extend({
      *
      */
     this.setAliasTexParameters();
+
+    /**
+     *
+     * Need to disable manual set of orientation changes for children
+     * because all children is positions by background of popup.
+     *
+     */
+    this.disableOrientationsChangesForChildren();
   },
 
   /**
@@ -69,7 +77,7 @@ cc.Finish = Popup.extend({
     this.button3.action = Game.onMenu.bind(Game);
 
     this.attr({
-      x: Camera.center.x + Camera.coord(10),
+      x: Camera.center.x + Camera.c(10).x,
       y: Camera.center.y,
       opacity: 0
     });

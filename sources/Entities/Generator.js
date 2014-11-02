@@ -21,7 +21,7 @@
  *
  */
 
-Generator = cc.SpriteBatchNode.extend({
+Generator = Entity.extend({
 
   /**
    *
@@ -29,61 +29,46 @@ Generator = cc.SpriteBatchNode.extend({
    *
    */
   ctor: function(parent) {
-    this._super(resources.main.value1);
+    this._super(false, parent);
 
     /**
      *
      * Setting properties.
      *
      */
-    this.holder = parent;
     this.counter = 0;
 
     /**
      *
-     * Extend second class.
+     *
      *
      */
-    Entity.prototype.ctor.call(this, false, parent, false, true);
-  },
+    this.holders = {
+      roads: new SpriteBatch(resources.main.value1, parent, 10, cc.Game.layers.road),
+      cars:  new SpriteBatch(resources.main.value2, parent, 20, cc.Game.layers.cars)
+    };
 
-  /**
-   *
-   * 
-   *
-   */
-  onCreate: function() {
-    Entity.prototype.onCreate.call(this);
-
+    /**
+     *
+     *
+     *
+     */
     this.donators = {
       road: [
-        new Manager(2, new Road(resources.frames.backgroundDecoration2), this, false, cc.Game.layers.road),
-        new Manager(2, new Road(resources.frames.backgroundDecoration3), this, false, cc.Game.layers.road),
-        new Manager(2, new Road(resources.frames.backgroundDecoration4), this, false, cc.Game.layers.road)
+        new Manager(2, new Road(resources.frames.backgroundDecoration2), this.holders.roads, false, cc.Game.layers.road),
+        new Manager(2, new Road(resources.frames.backgroundDecoration3), this.holders.roads, false, cc.Game.layers.road),
+        new Manager(2, new Road(resources.frames.backgroundDecoration4), this.holders.roads, false, cc.Game.layers.road)
       ],
       cars: [
-        new Manager(2, new Car(resources.frames.car2), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.frames.car3), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.frames.car4), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.frames.car5), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.frames.car6), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.frames.car7), this, false, cc.Game.layers.cars),
-        new Manager(2, new Car(resources.frames.car8), this, false, cc.Game.layers.cars)
+        new Manager(2, new Car(resources.frames.car2), this.holders.cars, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car3), this.holders.cars, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car4), this.holders.cars, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car5), this.holders.cars, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car6), this.holders.cars, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car7), this.holders.cars, false, cc.Game.layers.cars),
+        new Manager(2, new Car(resources.frames.car8), this.holders.cars, false, cc.Game.layers.cars)
       ]
     };
-  },
-  onDestroy: function() {
-    Entity.prototype.onDestroy.call(this);
-  },
-
-  /**
-   *
-   * 
-   *
-   */
-  onShow: function() {
-  },
-  onHide: function() {
   },
 
   /**
@@ -156,7 +141,7 @@ Generator = cc.SpriteBatchNode.extend({
 
     var y = this.findCarPosition(cars);
 
-    if(cars.length < (Game.parameters.type === cc.Game.types.arcade ? 5 : 3) && y) {
+    if(cars.length < 3 && y) {
       var donator = this.donators.cars.random();
 
       donator.create().attr({
@@ -222,7 +207,7 @@ Generator = cc.SpriteBatchNode.extend({
         }
       });
     }.bind(this));
-    this.reorderBatch(true);
+    this.holders.cars.reorderBatch(true);
   },
   counterCar: function(car) {
     if(Game.parameters.state === cc.Game.states.running) {
@@ -246,7 +231,7 @@ Generator = cc.SpriteBatchNode.extend({
   findCarPosition: function(cars, attempt) {
     attempt = attempt ? ++attempt : 1;
 
-    var candidate = random(0, Camera.height);// random(Camera.center.y / 2, Camera.height - Camera.center.y / 2);
+    var candidate = random(Camera.center.y / 2, Camera.height - Camera.center.y / 2);
 
     if(cars.length < 2 || cars.some(function(element) {
       if(element.created && !element.parameters.management) {
@@ -301,7 +286,7 @@ Generator = cc.SpriteBatchNode.extend({
    *
    */
   updateStates: function(time) {
-    switch(this.holder.parameters.state) {
+    switch(Game.parameters.state) {
       case cc.Game.states.prepare:
       case cc.Game.states.finish:
       case cc.Game.states.running:
