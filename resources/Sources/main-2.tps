@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>3.5.3</string>
         <key>fileName</key>
-        <string>F:/Development/cocos2d-over-road/resources/Sources/main-1.tps</string>
+        <string>F:/Development/cocos2d-over-road/resources/Sources/main-2.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>cocos2d</string>
         <key>textureFileName</key>
-        <filename>../Graphics/main-1.png</filename>
+        <filename>../Graphics/main-2.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -145,7 +145,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../Graphics/main-1.plist</filename>
+                <filename>../Graphics/main-2.plist</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -153,7 +153,7 @@
         <key>forceIdenticalLayout</key>
         <false/>
         <key>outputFormat</key>
-        <enum type="SettingsBase::OutputFormat">RGB565</enum>
+        <enum type="SettingsBase::OutputFormat">RGBA5551</enum>
         <key>contentProtection</key>
         <struct type="ContentProtection">
             <key>key</key>
@@ -188,9 +188,16 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>background-decoration-4.png</filename>
-            <filename>background-decoration-2.png</filename>
-            <filename>background-decoration-3.png</filename>
+            <filename>particle-2.png</filename>
+            <filename>car-1.png</filename>
+            <filename>car-2.png</filename>
+            <filename>car-3.png</filename>
+            <filename>car-4.png</filename>
+            <filename>car-5.png</filename>
+            <filename>car-6.png</filename>
+            <filename>car-7.png</filename>
+            <filename>car-8.png</filename>
+            <filename>particle-1.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
