@@ -4,10 +4,49 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>car-1.png</key>
+            <key>car-01.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{256,2},{26,36}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{26,36}}</string>
+                <key>sourceSize</key>
+                <string>{26,36}</string>
+            </dict>
+            <key>car-02.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{286,2},{26,36}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{26,36}}</string>
+                <key>sourceSize</key>
+                <string>{26,36}</string>
+            </dict>
+            <key>car-03.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{316,2},{26,36}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{26,36}}</string>
+                <key>sourceSize</key>
+                <string>{26,36}</string>
+            </dict>
+            <key>car-1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{346,2},{26,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -142,9 +181,9 @@
             <key>realTextureFileName</key>
             <string>main-2.png</string>
             <key>size</key>
-            <string>{284,58}</string>
+            <string>{374,58}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:fcd2aa3e566fe7a4d69ca643f62417dd:17b60790c1d61c689b635ccb447b1ddd:0268e2143368a8b3fdb578d07c8470ab$</string>
+            <string>$TexturePacker:SmartUpdate:853ac6cbc99ba43c939891134a6ba226:ad9e09be794b4a065070ce805be4940b:0268e2143368a8b3fdb578d07c8470ab$</string>
             <key>textureFileName</key>
             <string>main-2.png</string>
         </dict>

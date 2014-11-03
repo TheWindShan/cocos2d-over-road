@@ -28,6 +28,7 @@ sources = sources.concat([
   "sources/Entities/Generator.js",
   "sources/Entities/Button.js",
   "sources/Entities/Text.js",
+  "sources/Entities/Player.js",
   "sources/Screens/Screens/Game.js",
   "sources/Screens/Popups/Finish.js",
   "sources/Views/Game/View.js",

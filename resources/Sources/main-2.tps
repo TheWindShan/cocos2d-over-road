@@ -198,6 +198,9 @@
             <filename>car-7.png</filename>
             <filename>car-8.png</filename>
             <filename>particle-1.png</filename>
+            <filename>car-01.png</filename>
+            <filename>car-03.png</filename>
+            <filename>car-02.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

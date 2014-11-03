@@ -36,5 +36,16 @@ var properties = {
     name: 7,
     surname: 8,
     photo: 9
+  },
+  best: {
+    mode1: 10,
+    mode2: 11,
+    mode3: 12
+  },
+  cars: {
+    current: 100,
+    simple: 101,
+    army: 102,
+    police: 103
   }
 };

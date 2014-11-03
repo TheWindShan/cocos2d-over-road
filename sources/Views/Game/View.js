@@ -98,5 +98,9 @@ View = Background.extend({
      *
      */
     Game.addChild(this);
+    this.attr({
+      x: 0,
+      y: 0
+    });
   }
 });

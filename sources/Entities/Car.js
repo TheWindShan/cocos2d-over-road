@@ -36,7 +36,6 @@ Car = AnimatedEntity.extend({
      * Setting properties.
      *
      */
-    this.type = file;
     this.swipe = Camera.s(15);
 
     /**
@@ -441,7 +440,7 @@ Car = AnimatedEntity.extend({
    *
    */
   deepCopy: function() {
-    return new Car(this.type);
+    return new Car(this.getTextureFileName());
   }
 });
 

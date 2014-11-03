@@ -191,6 +191,7 @@
             <filename>background-decoration-4.png</filename>
             <filename>background-decoration-2.png</filename>
             <filename>background-decoration-3.png</filename>
+            <filename>text-panel.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

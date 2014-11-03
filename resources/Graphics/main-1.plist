@@ -43,6 +43,19 @@
                 <key>sourceSize</key>
                 <string>{320,144}</string>
             </dict>
+            <key>text-panel.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{326,298},{122,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{122,32}}</string>
+                <key>sourceSize</key>
+                <string>{122,32}</string>
+            </dict>
         </dict>
         <key>metadata</key>
         <dict>
@@ -53,7 +66,7 @@
             <key>size</key>
             <string>{644,444}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:7507f379878c6a44e85f99009318b211:6f465f507568fc9bf17ffeb9cacf2b10:835b396ffa78eb41de25bd633a5de3c2$</string>
+            <string>$TexturePacker:SmartUpdate:c4cbe6fade039fbdd7886c9011362a0b:5cbc1c094ac941111039dcdc1367bc29:835b396ffa78eb41de25bd633a5de3c2$</string>
             <key>textureFileName</key>
             <string>main-1.png</string>
         </dict>

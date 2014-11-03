@@ -134,6 +134,14 @@ var languages = {
     {title: 'ONLINE', font: 'Retroville', size: 5, dimensions: false},
     {title: 'ОНЛАЙН', font: 'Retroville', size: 5, dimensions: false}
   ],
+  'next': [
+    {title: 'NEXT', font: 'Retroville', size: 5, dimensions: false},
+    {title: 'СЛЕД', font: 'Retroville', size: 5, dimensions: false}
+  ],
+  'previous': [
+    {title: 'PREV', font: 'Retroville', size: 5, dimensions: false},
+    {title: 'ПРЕД', font: 'Retroville', size: 5, dimensions: false}
+  ],
   'description': [
     {title: 'This game "Over Road: destroy your car" was created to showcase the work of Tooflya API (http://api.tooflya.com).\n\nThis game has no commercial purpose. All integrated in-app purchases are presented to study the mechanisms of libraries work.', font: 'Retroville', size: 6, dimensions: [65, 0]},
     {title: 'Игра "Вне дороги: уничтожь машину" была создана для демонстрации работы Tooflya API (http://api.tooflya.com).\n\nИгра не имеет никакого коммерческого предназначения. Все интегрированные внутриигровые покупки представлены для ознакомления с механизмами работы библиотек.', font: 'Retroville', size: 6, dimensions: [65, 0]}
@@ -145,5 +153,29 @@ var languages = {
   'counter': [
     {title: '$1', font: 'Retroville', size: 18, dimensions: false},
     {title: '$1', font: 'Retroville', size: 18, dimensions: false}
+  ],
+  'car-0': [
+    {title: 'Regular car. Has no special properties. Quite often breaks.', font: 'Retroville', size: 5, dimensions: [115, 32]},
+    {title: 'Обычная машина. Не обладает специальными свойствами. Довольно часто ломается.', font: 'Retroville', size: 5, dimensions: [115, 32]}
+  ],
+  'car-1': [
+    {title: 'Army vehicle. Moves confidently. Remains intact after two collisions.', font: 'Retroville', size: 5, dimensions: [115, 32]},
+    {title: 'Армейская машина. Движется уверенно. Остается цела после двух столкновений.', font: 'Retroville', size: 5, dimensions: [115, 32]}
+  ],
+  'car-2': [
+    {title: 'Police car. Campaigners try to skip it.', font: 'Retroville', size: 5, dimensions: [115, 32]},
+    {title: 'Полицейская машина. Участники движения стараются пропустить ее.', font: 'Retroville', size: 5, dimensions: [115, 32]}
+  ],
+  'buy-car-1': [
+    {title: 'BUY, $2.99', font: 'Retroville', size: 5, dimensions: false},
+    {title: 'КУПИТЬ, $2.99', font: 'Retroville', size: 5, dimensions: false}
+  ],
+  'buy-car-2': [
+    {title: 'BUY, $6.99', font: 'Retroville', size: 5, dimensions: false},
+    {title: 'КУПИТЬ, $6.99', font: 'Retroville', size: 5, dimensions: false}
+  ],
+  'choose': [
+    {title: 'TAKE IT', font: 'Retroville', size: 5, dimensions: false},
+    {title: 'ВЫБРАТЬ', font: 'Retroville', size: 5, dimensions: false}
   ]
 };

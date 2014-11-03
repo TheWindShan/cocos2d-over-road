@@ -38,6 +38,7 @@ var resources = {
     backgroundDecoration1ru: 'resources/Graphics/background-decoration-1.1.png',
     backgroundDecoration1: 'resources/Graphics/background-decoration-1.png',
     button1: 'resources/Graphics/button-1.png',
+    button2: 'resources/Graphics/button-2.png',
     popup1: 'resources/Graphics/popup-background-1.png',
 
     data1: 'resources/Graphics/main-1.plist',
@@ -68,6 +69,9 @@ var resources = {
     backgroundDecoration2: 'resources/Graphics/background-decoration-2.png',
     backgroundDecoration3: 'resources/Graphics/background-decoration-3.png',
     backgroundDecoration4: 'resources/Graphics/background-decoration-4.png',
+    car01: 'resources/Graphics/car-01.png',
+    car02: 'resources/Graphics/car-02.png',
+    car03: 'resources/Graphics/car-03.png',
     car1: 'resources/Graphics/car-1.png',
     car2: 'resources/Graphics/car-2.png',
     car3: 'resources/Graphics/car-3.png',
@@ -77,7 +81,8 @@ var resources = {
     car7: 'resources/Graphics/car-7.png',
     car8: 'resources/Graphics/car-8.png',
     particle1: 'resources/Graphics/particle-1.png',
-    particle2: 'resources/Graphics/particle-2.png'
+    particle2: 'resources/Graphics/particle-2.png',
+    textpanel: 'resources/Graphics/text-panel.png'
   },
 
   sound: {

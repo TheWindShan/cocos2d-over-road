@@ -297,7 +297,7 @@ cc.Game = Screen.extend({
       this.particles1 = new Manager(100, new Car.Particle1(), this, true, cc.Game.layers.particles1);
       this.particles2 = new Manager(100, new Car.Particle2(), this, true, cc.Game.layers.particles2);
 
-      this.player = new Car(resources.frames.car1, this.generator.holders.cars);
+      this.player = new Player(this.generator.holders.cars);
 
       this.generator.create();
     }
@@ -306,8 +306,6 @@ cc.Game = Screen.extend({
         x: -this.player.getWidth() / 2,
         y: Camera.center.y - Camera.c(10).y
     });
-    this.player.setManagement(true);
-    this.player.setLocalZOrder(cc.Game.layers.cars);
     this.player.runAction(
       cc.EaseSineOut.create(
         cc.MoveTo.create(1.0, cc.p(this.player.getWidth(), Camera.center.y - Camera.c(10).y))
@@ -321,6 +319,14 @@ cc.Game = Screen.extend({
    *
    */
   onKeyBack: function() {
+    if(this.parameters.stack.current.onBack) {
+      if(this.parameters.stack.current.onBack()) {
+        this.onBack();
+      }
+
+      return;
+    }
+
     this.onBack();
   },
   onKeyEscape: function() {
@@ -511,6 +517,15 @@ cc.Game = Screen.extend({
     this.counter.setText('counter');
   },
   onAnimation: function() {
+    this.name.runAction(
+      cc.Sequence.create(
+        cc.EaseSineOut.create(
+          cc.MoveTo.create(0.5, cc.p(Camera.center.x, Camera.center.y * 1.6))
+        )
+      )
+    );
+
+    this.player.stopAllActions();
     this.player.runAction(
       cc.EaseCubicActionOut.create(
         cc.MoveTo.create(1.0, {
@@ -521,6 +536,14 @@ cc.Game = Screen.extend({
     );
   },
   onStore: function() {
+    this.player.stopAllActions();
+    this.player.runAction(
+      cc.RepeatForever.create(
+        cc.Sequence.create(
+          cc.DelayTime.create(1.0)
+        )
+      )
+    );
     this.player.runAction(
       cc.EaseCubicActionOut.create(
         cc.MoveTo.create(1.0, {
@@ -572,11 +595,9 @@ cc.Game = Screen.extend({
     this.changeView(View3, View5);
   },
   onMenu: function() {
-    this.changeView();
     this.restart(true);
   },
   onRestart: function() {
-    this.changeView();
     this.restart(false);
   },
   onScores: function() {
