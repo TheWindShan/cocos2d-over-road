@@ -21,21 +21,82 @@
  *
  */
 
-sources = sources.concat([
-  "sources/Support/Events.js",
-  "sources/Entities/Car.js",
-  "sources/Entities/Road.js",
-  "sources/Entities/Generator.js",
-  "sources/Entities/Button.js",
-  "sources/Entities/Text.js",
-  "sources/Screens/Screens/Game.js",
-  "sources/Screens/Popups/Finish.js",
-  "sources/Views/Game/View.js",
-  "sources/Views/Game/View1.js",
-  "sources/Views/Game/View2.js",
-  "sources/Views/Game/View3.js",
-  "sources/Views/Game/View4.js",
-  "sources/Views/Game/View5.js",
-  "sources/Views/Game/View6.js",
-  "sources/Views/Game/View7.js"
-]);
+View = Background.extend({
+
+  /**
+   *
+   * 
+   *
+   */
+  ctor: function(auto) {
+    this._super();
+
+    /**
+     *
+     * Setting properties.
+     *
+     */
+    this.push = 0;
+    this.attr({
+      x: Camera.width,
+      y: 0,
+
+      zIndex: cc.Game.layers.views
+    });
+
+    /**
+     *
+     * Memory management.
+     *
+     */
+    this.retain();
+
+    /**
+     *
+     * Add to the screen if autorected.
+     *
+     */
+    if(auto) {
+      Game.addChild(this);
+    }
+  },
+
+  /**
+   *
+   * 
+   *
+   */
+  open: function() {
+    Game.addChild(this);
+  },
+  close: function() {
+    this.removeFromParent();
+  },
+
+  /**
+   *
+   * 
+   *
+   */
+  show: function() {
+
+    /**
+     *
+     * Reset all views.
+     *
+     */
+    View2.push = 1;
+    View3.push = 0;
+    View4.push = 0;
+    View5.push = 0;
+    View6.push = 0;
+    View7.push = 0;
+
+    /**
+     *
+     * Show current.
+     *
+     */
+    Game.addChild(this);
+  }
+});

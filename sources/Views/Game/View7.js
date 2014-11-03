@@ -21,21 +21,40 @@
  *
  */
 
-sources = sources.concat([
-  "sources/Support/Events.js",
-  "sources/Entities/Car.js",
-  "sources/Entities/Road.js",
-  "sources/Entities/Generator.js",
-  "sources/Entities/Button.js",
-  "sources/Entities/Text.js",
-  "sources/Screens/Screens/Game.js",
-  "sources/Screens/Popups/Finish.js",
-  "sources/Views/Game/View.js",
-  "sources/Views/Game/View1.js",
-  "sources/Views/Game/View2.js",
-  "sources/Views/Game/View3.js",
-  "sources/Views/Game/View4.js",
-  "sources/Views/Game/View5.js",
-  "sources/Views/Game/View6.js",
-  "sources/Views/Game/View7.js"
-]);
+cc.View7 = View.extend({
+
+  /**
+   *
+   * 
+   *
+   */
+  ctor: function() {
+    this._super();
+
+    /**
+     *
+     * Setting global pointer.
+     *
+     */
+    View7 = this;
+  },
+
+  /**
+   *
+   * 
+   *
+   */
+  onShow: function() {
+    this._super();
+
+    /**
+     *
+     * change state.
+     *
+     */
+    Game.changeState(cc.Game.states.store);
+  },
+  onHide: function() {
+    this._super();
+  }
+});

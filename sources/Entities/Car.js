@@ -132,6 +132,8 @@ Car = AnimatedEntity.extend({
     if(this.getNumberOfRunningActions() > 0) {
       this.particles2.create().attr({x: this.x, y: this.y});
       this.particles2.create().attr({x: this.x, y: this.y - this.getHeight() / 3});
+      this.particles2.create().attr({x: this.x + this.particles2.last().getWidth(), y: this.y});
+      this.particles2.create().attr({x: this.x + this.particles2.last().getWidth(), y: this.y - this.getHeight() / 3});
     }
   },
   effect2: function() {

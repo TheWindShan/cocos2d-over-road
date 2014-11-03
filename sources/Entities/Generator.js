@@ -247,7 +247,22 @@ Generator = Entity.extend({
    * 
    *
    */
-  updateRunning: function(time) {
+  updateCars: function(time) {
+
+    /**
+     *
+     * Creating new cars.
+     *
+     */
+    this.findCars({
+      create: function(element) {
+        if(Game.parameters.state === cc.Game.states.animation) {
+          element.parameters.countered = true;
+        }
+      }
+    });
+  },
+  updateRoads: function(time) {
     var donator = Game.parameters.state === cc.Game.states.animation ? this.donators.road[2] : this.donators.road.random();
 
     /**
@@ -265,19 +280,17 @@ Generator = Entity.extend({
         donator.last().update(0.02);
       }.bind(this)
     });
-
-    /**
-     *
-     * Creating new cars.
-     *
-     */
-    this.findCars({
-      create: function(element) {
-        if(Game.parameters.state === cc.Game.states.animation) {
-          element.parameters.countered = true;
-        }
-      }
-    });
+  },
+  updateRunning: function(time) {
+    switch(Game.parameters.state) {
+      case cc.Game.states.prepare:
+      case cc.Game.states.running:
+      case cc.Game.states.animation:
+      this.updateCars(time);
+      case cc.Game.states.store:
+      this.updateRoads(time);
+      break;
+    }
 
     /**
      *
@@ -301,6 +314,7 @@ Generator = Entity.extend({
       case cc.Game.states.prepare:
       case cc.Game.states.running:
       case cc.Game.states.animation:
+      case cc.Game.states.store:
       this.updateRunning(time);
       break;
     }
