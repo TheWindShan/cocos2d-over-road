@@ -36,7 +36,7 @@ Road = Entity.extend({
      *
      *
      */
-    this.getTexture().setAliasTexParameters();
+    this.setAliasTexParameters();
   },
 
   /**

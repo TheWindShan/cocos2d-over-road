@@ -69,6 +69,19 @@ Generator = Entity.extend({
         new Manager(2, new Car(resources.frames.car8), this.holders.cars, false, cc.Game.layers.cars)
       ]
     };
+
+    /**
+     *
+     *
+     *
+     */
+    this.timelaps = {
+      car: {
+        fire: false,
+        time: 0.4,
+        elapsed: 0
+      }
+    };
   },
 
   /**
@@ -139,14 +152,12 @@ Generator = Entity.extend({
   findCars: function(callbacks) {
     var cars = this.getAll(this.donators.cars).concat([Game.player]);
 
-    var y = this.findCarPosition(cars);
-
-    if(cars.length < 3 && y) {
+    if(this.timelaps.car.fire) {
       var donator = this.donators.cars.random();
 
       donator.create().attr({
         x: Camera.width + donator.last().getWidth(),
-        y: y
+        y: random(Camera.center.y - Camera.s(30), Camera.center.y + Camera.s(30))
       });
 
       if(callbacks) {
@@ -158,6 +169,8 @@ Generator = Entity.extend({
       }
 
       cars.push(donator.last());
+
+      this.timelaps.car.fire = false;
     }
 
     this.sortCars(cars);
@@ -228,19 +241,6 @@ Generator = Entity.extend({
 
     return false;
   },
-  findCarPosition: function(cars, attempt) {
-    attempt = attempt ? ++attempt : 1;
-
-    var candidate = random(Camera.center.y / 2, Camera.height - Camera.center.y / 2);
-
-    if(cars.length < 2 || cars.some(function(element) {
-      if(element.created && !element.parameters.management) {
-        if(Math.abs(candidate - element.y) > element.getHeight()) return true;
-      }
-    })) { return candidate; }
-
-    return (attempt > 2 ? false : this.findCarPosition(cars, attempt));
-  },
 
   /**
    *
@@ -278,6 +278,17 @@ Generator = Entity.extend({
         }
       }
     });
+
+    /**
+     *
+     * Counting time for creation a new elements.
+     *
+     */
+    this.timelaps.car.elapsed += time;
+    if(this.timelaps.car.elapsed >= this.timelaps.car.time) {
+      this.timelaps.car.elapsed = 0;
+      this.timelaps.car.fire = true;
+    }
   },
 
   /**
@@ -288,7 +299,6 @@ Generator = Entity.extend({
   updateStates: function(time) {
     switch(Game.parameters.state) {
       case cc.Game.states.prepare:
-      case cc.Game.states.finish:
       case cc.Game.states.running:
       case cc.Game.states.animation:
       this.updateRunning(time);

@@ -30,8 +30,8 @@ App = {
   config: {
     debug: false,
     graphics: {
-      x: 320,
-      y: 144
+      x: 640,
+      y: 288
     },
     server: {
       url: 'www.tooflya.com',

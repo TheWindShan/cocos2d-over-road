@@ -58,6 +58,8 @@ Car = AnimatedEntity.extend({
     this.particles1 = Game.particles1;
     this.particles2 = Game.particles2;
 
+    this.stopAllActions();
+
     this.parameters = {
       management: false,
       countered: false,

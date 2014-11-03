@@ -256,6 +256,8 @@ cc.Game = Screen.extend({
    */
   createView1: function() {
     if(!this.parameters.views.view1) {
+      new BackgroundColor(this, cc.color(199, 207, 162));
+
       this.background = new Entity(resources.loading.background, this, true);
       
       this.parameters.views.view1 = true;
@@ -361,32 +363,40 @@ cc.Game = Screen.extend({
       }
 
       this.button1 = new Button(resources.main.button1, this.parameters.views.view2, 1, 1, 1, 2, this.onPlay.bind(this), 'play');
-      this.button2 = new Button(resources.main.button1, this.parameters.views.view2, 1, 1, 1, 2, this.onRate.bind(this), 'rate');
-      this.button3 = new Button(resources.main.button1, this.parameters.views.view2, 1, 1, 1, 2, this.onMore.bind(this), 'more');
+      this.button2 = new Button(resources.main.button1, this.parameters.views.view2, 1, 1, 1, 2, this.onPlay.bind(this), 'store');
+      this.button3 = new Button(resources.main.button1, this.parameters.views.view2, 1, 1, 1, 2, this.onRate.bind(this), 'rate');
+      this.button4 = new Button(resources.main.button1, this.parameters.views.view2, 1, 1, 1, 2, this.onMore.bind(this), 'more');
 
       this.button1.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: Camera.s(5)
+          y: Camera.s(10)
         }
       }));
       this.button2.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: Camera.s(2)
+          y: Camera.s(4)
         }
       }));
       this.button3.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: -Camera.s(1)
+          y: -Camera.s(2)
+        }
+      }));
+      this.button4.setOrientationConfig(new OrientationConfig({
+        landscape: {
+          y: -Camera.s(8)
         }
       }));
 
-      this.button1.create().attr({x: Camera.center.x, y: -Camera.c(5, this.button1).y});
-      this.button2.create().attr({x: Camera.center.x, y: -Camera.c(5, this.button2).y});
-      this.button3.create().attr({x: Camera.center.x, y: -Camera.c(5, this.button3).y});
+      this.button1.create().attr({x: Camera.center.x, y: -Camera.c(10, this.button1).y});
+      this.button2.create().attr({x: Camera.center.x, y: -Camera.c(10, this.button2).y});
+      this.button3.create().attr({x: Camera.center.x, y: -Camera.c(10, this.button3).y});
+      this.button4.create().attr({x: Camera.center.x, y: -Camera.c(10, this.button4).y});
 
       this.button1.setAliasTexParameters();
       this.button2.setAliasTexParameters();
       this.button3.setAliasTexParameters();
+      this.button4.setAliasTexParameters();
 
       this.button1.runAction(
         cc.EaseCubicActionOut.create(
@@ -397,7 +407,7 @@ cc.Game = Screen.extend({
         cc.Sequence.create(
           cc.DelayTime.create(0.5),
           cc.EaseCubicActionOut.create(
-            cc.MoveTo.create(1.0, cc.p(Camera.center.x, Camera.center.y - Camera.c(15, this.button2).y))
+            cc.MoveTo.create(1.0, cc.p(Camera.center.x, Camera.center.y - Camera.c(20, this.button2).y))
           )
         )
       );
@@ -405,7 +415,15 @@ cc.Game = Screen.extend({
         cc.Sequence.create(
           cc.DelayTime.create(1.0),
           cc.EaseCubicActionOut.create(
-            cc.MoveTo.create(1.0, cc.p(Camera.center.x, Camera.center.y - Camera.c(30, this.button3).y))
+            cc.MoveTo.create(1.0, cc.p(Camera.center.x, Camera.center.y - Camera.c(40, this.button3).y))
+          )
+        )
+      );
+      this.button4.runAction(
+        cc.Sequence.create(
+          cc.DelayTime.create(1.5),
+          cc.EaseCubicActionOut.create(
+            cc.MoveTo.create(1.0, cc.p(Camera.center.x, Camera.center.y - Camera.c(60, this.button4).y))
           )
         )
       );
@@ -482,6 +500,7 @@ cc.Game = Screen.extend({
         y: Camera.center.y - Camera.c(5).y
       });
       this.parameters.views.view3.shadow = new BackgroundColor(this);
+      this.parameters.views.view3.shadow.setLocalZOrder(cc.Game.layers.particles1 + 1);
       this.parameters.views.view3.shadow.setOpacity(0);
     }
 
@@ -503,23 +522,23 @@ cc.Game = Screen.extend({
 
       this.parameters.views.view4.button1.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: Camera.s(5)
+          y: Camera.s(10)
         }
       }));
       this.parameters.views.view4.button2.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: Camera.s(2)
+          y: Camera.s(4)
         }
       }));
       this.parameters.views.view4.button3.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: -Camera.s(1)
+          y: -Camera.s(3)
         }
       }));
 
       this.parameters.views.view4.button1.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(0, this.parameters.views.view4.button1).y});
-      this.parameters.views.view4.button2.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(15, this.parameters.views.view4.button2).y});
-      this.parameters.views.view4.button3.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(30, this.parameters.views.view4.button3).y});
+      this.parameters.views.view4.button2.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(20, this.parameters.views.view4.button2).y});
+      this.parameters.views.view4.button3.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(40, this.parameters.views.view4.button3).y});
 
       this.parameters.views.view4.button1.setAliasTexParameters();
       this.parameters.views.view4.button2.setAliasTexParameters();
@@ -545,29 +564,29 @@ cc.Game = Screen.extend({
 
       this.parameters.views.view5.button1.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: Camera.s(8)
+          y: Camera.s(10)
         }
       }));
       this.parameters.views.view5.button2.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: Camera.s(6)
+          y: Camera.s(4)
         }
       }));
       this.parameters.views.view5.button3.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: Camera.s(4)
+          y: -Camera.s(2)
         }
       }));
       this.parameters.views.view5.button4.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: Camera.s(2)
+          y: -Camera.s(8)
         }
       }));
 
       this.parameters.views.view5.button1.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(0, this.parameters.views.view5.button1).y});
-      this.parameters.views.view5.button2.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(15, this.parameters.views.view5.button2).y});
-      this.parameters.views.view5.button3.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(30, this.parameters.views.view5.button3).y});
-      this.parameters.views.view5.button4.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(45, this.parameters.views.view5.button4).y});
+      this.parameters.views.view5.button2.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(20, this.parameters.views.view5.button2).y});
+      this.parameters.views.view5.button3.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(40, this.parameters.views.view5.button3).y});
+      this.parameters.views.view5.button4.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(60, this.parameters.views.view5.button4).y});
 
       this.parameters.views.view5.button1.setAliasTexParameters();
       this.parameters.views.view5.button2.setAliasTexParameters();
@@ -593,23 +612,23 @@ cc.Game = Screen.extend({
 
       this.parameters.views.view6.button1.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: Camera.s(5)
+          y: Camera.s(10)
         }
       }));
       this.parameters.views.view6.button2.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: Camera.s(2)
+          y: Camera.s(4)
         }
       }));
       this.parameters.views.view6.button3.setOrientationConfig(new OrientationConfig({
         landscape: {
-          y: -Camera.s(1)
+          y: -Camera.s(2)
         }
       }));
 
       this.parameters.views.view6.button1.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(0, this.parameters.views.view4.button1).y});
-      this.parameters.views.view6.button2.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(15, this.parameters.views.view4.button2).y});
-      this.parameters.views.view6.button3.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(30, this.parameters.views.view4.button3).y});
+      this.parameters.views.view6.button2.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(20, this.parameters.views.view4.button2).y});
+      this.parameters.views.view6.button3.create().attr({x: Camera.center.x, y: Camera.center.y - Camera.c(40, this.parameters.views.view4.button3).y});
 
       this.parameters.views.view6.button1.setAliasTexParameters();
       this.parameters.views.view6.button2.setAliasTexParameters();
@@ -652,7 +671,7 @@ cc.Game = Screen.extend({
      */
     Music.play(resources.main.music1, true);
 
-    this.speed = Camera.s(200);
+    this.speed = Camera.s(250);
     this.time = 1;
     this.score = 0;
 
@@ -709,7 +728,7 @@ cc.Game = Screen.extend({
     this.player.setLocalZOrder(cc.Game.layers.cars);
     this.player.runAction(
       cc.EaseSineOut.create(
-        cc.MoveTo.create(1.0, cc.p(this.player.getWidth() / 2, Camera.center.y - Camera.c(10).y))
+        cc.MoveTo.create(1.0, cc.p(this.player.getWidth(), Camera.center.y - Camera.c(10).y))
       )
     );
   },

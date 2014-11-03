@@ -4,7 +4,7 @@
   "debugMode": 0,
   "showFPS": false,
   "id": "canvas",
-  "renderMode": 0,
+  "renderMode": 2,
   "engineDir": "frameworks/cocos2d-html5",
 
   "modules": [
