@@ -52,6 +52,7 @@ cc.Game = Screen.extend({
         current: false
       }
     };
+    this.setupFpsCounter();
 
     /**
      *
@@ -157,6 +158,36 @@ cc.Game = Screen.extend({
     } else {
       this.completed(action);
     }
+  },
+
+  /**
+   *
+   * 
+   *
+   */
+  setupFpsCounter: function() {
+    this.frames = new Text('frames', this);
+    this.frames.setOrientationConfig(new OrientationConfig({
+      landscape: {
+        x: -Camera.s(10),
+        y: Camera.s(5)
+      }
+    }));
+    this.frames.create().attr({
+      up: 0,
+      x: Camera.c(13).x,
+      y: Camera.height - Camera.c(5).y,
+
+      zIndex: 1000
+    });
+    this.frames.update = function(time) {
+      this.up += time;
+
+      if(this.up >= 0.5) {
+        this.up = 0;
+        this.format([1.0 / cc.director.getDeltaTime() | 2]);
+      }
+    };
   },
 
   /**

@@ -156,10 +156,10 @@ cc.View2 = View.extend({
 
             switch(Orientation.orientation) {
               case Orientation.types.portrait:
-              y = 20;
+              y = 40;
               break;
               case Orientation.types.landscape:
-              y = 30;
+              y = 50;
               break;
             }
 

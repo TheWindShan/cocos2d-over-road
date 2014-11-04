@@ -335,7 +335,9 @@ cc.View7 = View.extend({
     }
   },
   onBack: function() {
-    return this.onMenu();
+    this.onMenu();
+
+    return false;
   },
 
   /**

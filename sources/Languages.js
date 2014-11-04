@@ -22,6 +22,10 @@
  */
 
 var languages = {
+  'frames': [
+    {title: 'FPS: $1', font: 'Retroville', size: 4, dimensions: false},
+    {title: 'FPS: $1', font: 'Retroville', size: 4, dimensions: false}
+  ],
   'loading-1': [
     {title: 'Loading textures: $1 from $2', font: 'Retroville', size: 6, dimensions: false},
     {title: 'Загрузка ресурсов: $1 из $2', font: 'Retroville', size: 6, dimensions: false}

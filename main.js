@@ -29,6 +29,7 @@
 App = {
   config: {
     debug: false,
+    autostart: true,
     graphics: {
       x: 640,
       y: 288
