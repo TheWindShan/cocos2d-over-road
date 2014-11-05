@@ -101,4 +101,11 @@ static AppDelegate s_sharedApplication;
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark Javascript management
+
+- (void) orientationChanged: (NSNotification *) notification {
+   [self adjustViewsForOrientation: [[UIApplication sharedApplication] statusBarOrientation]];
+}
+
 @end

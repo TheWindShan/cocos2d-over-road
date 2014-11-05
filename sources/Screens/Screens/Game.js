@@ -714,10 +714,8 @@ cc.Game = Screen.extend({
     if(view1) {
       view1.runAction(
         cc.Sequence.create(
-          cc.EaseElasticOut.create(
-            cc.MoveTo.create(1.2, {x: Camera.width * (view1.push >= 1 ? -1 : 1), y: 0})
-          ),
-          cc.CallFunc.create(view1.close, view1)
+            cc.MoveTo.create(0.1, {x: Camera.width * (view1.push >= 1 ? -1 : 1), y: 0}),
+            cc.CallFunc.create(view1.close, view1)
         )
       );
     }
