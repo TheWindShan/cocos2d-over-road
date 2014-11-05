@@ -56,4 +56,15 @@ App = {
  * That's all - no more actions needed for launching game.
  *
  */
-cc.loader.loadJs("frameworks/sources/App.js");
+var app;
+switch(cc.sys.platform) {
+  default:
+  app = 'frameworks/library/sources/App.js';
+  break;
+  case cc.sys.IOS:
+  case cc.sys.MAC:
+  app = 'library/sources/App.js';
+  break;
+}
+
+cc.loader.loadJs(app);

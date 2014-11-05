@@ -23,86 +23,86 @@
 
 var resources = {
   loading: {
-    font1: 'resources/Fonts/Retroville.ttf',
+    font1: 'resource/Fonts/Retroville.ttf',
 
-    background: 'resources/Graphics/background-1.png',
-    decoration1en: 'resources/Graphics/background-decoration-1.0.png',
-    decoration1ru: 'resources/Graphics/background-decoration-1.1.png',
-    decoration1: 'resources/Graphics/background-decoration-1.png',
-    decoration2: 'resources/Graphics/car-1.png',
-    decoration3: 'resources/Graphics/background-decoration-5.png'
+    background: 'resource/Graphics/background-1.png',
+    decoration1en: 'resource/Graphics/background-decoration-1.0.png',
+    decoration1ru: 'resource/Graphics/background-decoration-1.1.png',
+    decoration1: 'resource/Graphics/background-decoration-1.png',
+    decoration2: 'resource/Graphics/car-1.png',
+    decoration3: 'resource/Graphics/background-decoration-5.png'
   },
   main: {
-    background1: 'resources/Graphics/background-1.png',
-    backgroundDecoration1en: 'resources/Graphics/background-decoration-1.0.png',
-    backgroundDecoration1ru: 'resources/Graphics/background-decoration-1.1.png',
-    backgroundDecoration1: 'resources/Graphics/background-decoration-1.png',
-    button1: 'resources/Graphics/button-1.png',
-    button2: 'resources/Graphics/button-2.png',
-    popup1: 'resources/Graphics/popup-background-1.png',
+    background1: 'resource/Graphics/background-1.png',
+    backgroundDecoration1en: 'resource/Graphics/background-decoration-1.0.png',
+    backgroundDecoration1ru: 'resource/Graphics/background-decoration-1.1.png',
+    backgroundDecoration1: 'resource/Graphics/background-decoration-1.png',
+    button1: 'resource/Graphics/button-1.png',
+    button2: 'resource/Graphics/button-2.png',
+    popup1: 'resource/Graphics/popup-background-1.png',
 
-    data1: 'resources/Graphics/main-1.plist',
-    value1: 'resources/Graphics/main-1.png',
+    data1: 'resource/Graphics/main-1.plist',
+    value1: 'resource/Graphics/main-1.png',
 
-    data2: 'resources/Graphics/main-2.plist',
-    value2: 'resources/Graphics/main-2.png',
+    data2: 'resource/Graphics/main-2.plist',
+    value2: 'resource/Graphics/main-2.png',
 
-    music1: 'resources/Music/music-1.wav',
-    button: 'resources/Sound/button.wav',
-    change: 'resources/Sound/change.wav',
-    start: 'resources/Sound/start.wav',
-    counter: 'resources/Sound/counter.wav',
+    music1: 'resource/Music/music-1.wav',
+    button: 'resource/Sound/button.wav',
+    change: 'resource/Sound/change.wav',
+    start: 'resource/Sound/start.wav',
+    counter: 'resource/Sound/counter.wav',
 
-    skid01: 'resources/Sound/skid-01.wav',
-    skid02: 'resources/Sound/skid-02.wav',
-    skid03: 'resources/Sound/skid-03.wav',
-    skid04: 'resources/Sound/skid-04.wav',
+    skid01: 'resource/Sound/skid-01.wav',
+    skid02: 'resource/Sound/skid-02.wav',
+    skid03: 'resource/Sound/skid-03.wav',
+    skid04: 'resource/Sound/skid-04.wav',
 
-    crash01: 'resources/Sound/crash-01.wav',
-    crash02: 'resources/Sound/crash-02.wav',
-    crash03: 'resources/Sound/crash-03.wav',
-    crash04: 'resources/Sound/crash-04.wav',
-    crash05: 'resources/Sound/crash-05.wav'
+    crash01: 'resource/Sound/crash-01.wav',
+    crash02: 'resource/Sound/crash-02.wav',
+    crash03: 'resource/Sound/crash-03.wav',
+    crash04: 'resource/Sound/crash-04.wav',
+    crash05: 'resource/Sound/crash-05.wav'
   },
 
   frames: {
-    backgroundDecoration2: 'resources/Graphics/background-decoration-2.png',
-    backgroundDecoration3: 'resources/Graphics/background-decoration-3.png',
-    backgroundDecoration4: 'resources/Graphics/background-decoration-4.png',
-    car01: 'resources/Graphics/car-01.png',
-    car02: 'resources/Graphics/car-02.png',
-    car03: 'resources/Graphics/car-03.png',
-    car1: 'resources/Graphics/car-1.png',
-    car2: 'resources/Graphics/car-2.png',
-    car3: 'resources/Graphics/car-3.png',
-    car4: 'resources/Graphics/car-4.png',
-    car5: 'resources/Graphics/car-5.png',
-    car6: 'resources/Graphics/car-6.png',
-    car7: 'resources/Graphics/car-7.png',
-    car8: 'resources/Graphics/car-8.png',
-    particle1: 'resources/Graphics/particle-1.png',
-    particle2: 'resources/Graphics/particle-2.png',
-    textpanel: 'resources/Graphics/text-panel.png'
+    backgroundDecoration2: 'resource/Graphics/background-decoration-2.png',
+    backgroundDecoration3: 'resource/Graphics/background-decoration-3.png',
+    backgroundDecoration4: 'resource/Graphics/background-decoration-4.png',
+    car01: 'resource/Graphics/car-01.png',
+    car02: 'resource/Graphics/car-02.png',
+    car03: 'resource/Graphics/car-03.png',
+    car1: 'resource/Graphics/car-1.png',
+    car2: 'resource/Graphics/car-2.png',
+    car3: 'resource/Graphics/car-3.png',
+    car4: 'resource/Graphics/car-4.png',
+    car5: 'resource/Graphics/car-5.png',
+    car6: 'resource/Graphics/car-6.png',
+    car7: 'resource/Graphics/car-7.png',
+    car8: 'resource/Graphics/car-8.png',
+    particle1: 'resource/Graphics/particle-1.png',
+    particle2: 'resource/Graphics/particle-2.png',
+    textpanel: 'resource/Graphics/text-panel.png'
   },
 
   sound: {
     skid: [
       [
-      'resources/Sound/skid-01.wav',
-      'resources/Sound/skid-02.wav',
-      'resources/Sound/skid-03.wav',
-      'resources/Sound/skid-04.wav'
+      'resource/Sound/skid-01.wav',
+      'resource/Sound/skid-02.wav',
+      'resource/Sound/skid-03.wav',
+      'resource/Sound/skid-04.wav'
       ]
     ],
     crash: [
-      'resources/Sound/crash-02.wav',
-      'resources/Sound/crash-03.wav',
-      'resources/Sound/crash-04.wav',
-      'resources/Sound/crash-05.wav'
+      'resource/Sound/crash-02.wav',
+      'resource/Sound/crash-03.wav',
+      'resource/Sound/crash-04.wav',
+      'resource/Sound/crash-05.wav'
     ]
   },
 
   system: {
-    manifest: 'resources/project.manifest'
+    manifest: 'resource/project.manifest'
   }
 };
