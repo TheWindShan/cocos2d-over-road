@@ -22,6 +22,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h> 
 #import "cocos2d.h"
 
 #import "AppController.h"
@@ -103,6 +104,14 @@ static AppDelegate s_sharedApplication;
 
 #pragma mark -
 #pragma mark Javascript management
+
++ (void) vibrate: (NSNumber *) time {
+   if([[UIDevice currentDevice].model isEqualToString:@"iPhone"]) {
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+   } else {
+    AudioServicesPlayAlertSound(1105);
+   }
+}
 
 - (void) orientationChanged: (NSNotification *) notification {
    [self adjustViewsForOrientation: [[UIApplication sharedApplication] statusBarOrientation]];
