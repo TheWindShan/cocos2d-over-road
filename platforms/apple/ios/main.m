@@ -21,49 +21,12 @@
  *
  */
 
-/**
- *
- *
- *
- */
-App = {
-  config: {
-    debug: false,
-    autostart: true,
-    graphics: {
-      x: 640,
-      y: 288
-    },
-    server: {
-      url: 'www.tooflya.com',
-      port: 8083,
-      secure: false
-    },
-    orientations: {
-      portrait: true,
-      landscape: true
-    },
-    languages: [
-      {iso: 'en', id: 0},
-      {iso: 'ru', id: 1}
-    ]
-  }
-};
+#import <UIKit/UIKit.h>
 
-/**
- *
- * Loading cocos2d-tooflya-sdk main javascript file.
- * That's all - no more actions needed for launching game.
- *
- */
-var app = 'frameworks/library/sources/App.js';
-if(cc.sys.isNative) {
-  switch(cc.sys.os) {
-    case cc.sys.OS_IOS:
-    case cc.sys.OS_OSX:
-      app = 'library/sources/App.js';
-    break;
-  }
+int main(int argc, char *argv[]) {
+  NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+  int retVal = UIApplicationMain(argc, argv, nil, @"AppController");
+  [pool release];
+
+  return retVal;
 }
-
-cc.loader.loadJs(app);

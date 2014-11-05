@@ -23,7 +23,7 @@
 
 var resources = {
   loading: {
-    font1: 'resource/Fonts/Retroville.ttf',
+    font1: 'resource/Fonts/RetroVille NC.ttf',
 
     background: 'resource/Graphics/background-1.png',
     decoration1en: 'resource/Graphics/background-decoration-1.0.png',
