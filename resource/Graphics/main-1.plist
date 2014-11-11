@@ -7,7 +7,7 @@
             <key>background-decoration-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{640,144}}</string>
+                <string>{{0,0},{640,144}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>background-decoration-3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,150},{640,144}}</string>
+                <string>{{0,144},{640,144}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,20 +33,20 @@
             <key>background-decoration-4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,298},{320,144}}</string>
+                <string>{{0,288},{320,159}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{320,144}}</string>
+                <string>{{0,0},{320,159}}</string>
                 <key>sourceSize</key>
-                <string>{320,144}</string>
+                <string>{320,159}</string>
             </dict>
             <key>text-panel.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{326,298},{122,32}}</string>
+                <string>{{320,288},{122,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -64,9 +64,9 @@
             <key>realTextureFileName</key>
             <string>main-1.png</string>
             <key>size</key>
-            <string>{644,444}</string>
+            <string>{640,447}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c4cbe6fade039fbdd7886c9011362a0b:5cbc1c094ac941111039dcdc1367bc29:835b396ffa78eb41de25bd633a5de3c2$</string>
+            <string>$TexturePacker:SmartUpdate:c17e2ef56062fecfc2595b6587ff82b2:17e78d4572009b7a133389841e680c9b:835b396ffa78eb41de25bd633a5de3c2$</string>
             <key>textureFileName</key>
             <string>main-1.png</string>
         </dict>

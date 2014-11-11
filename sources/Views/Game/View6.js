@@ -43,8 +43,8 @@ cc.View6 = View.extend({
      * Create elements.
      *
      */
-    this.button1 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onPlayArcade.bind(Game), 'mode-1');
-    this.button2 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onPlaySurvival.bind(Game), 'mode-2');
+    this.button1 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onPlaySurvival.bind(Game), 'mode-2');
+    this.button2 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onPlayArcade.bind(Game), 'mode-1');
     this.button3 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onBack.bind(Game), 'back');
 
     this.button1.setOrientationConfig(new OrientationConfig({

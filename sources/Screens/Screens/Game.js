@@ -339,7 +339,7 @@ cc.Game = Screen.extend({
     });
     this.player.runAction(
       cc.EaseSineOut.create(
-        cc.MoveTo.create(1.0, cc.p(this.player.getWidth(), Camera.center.y - Camera.c(10).y))
+        cc.MoveTo.create(1.0, cc.p(this.player.getWidth(), Camera.s(cc.Game.positions[2])))
       )
     );
   },
@@ -408,26 +408,22 @@ cc.Game = Screen.extend({
     Vibrator.vibrate(5);
   },
   onSwipeRight: function() {
-    return;
-
     if(this.parameters.state === cc.Game.states.running) {
       this.player.onSwipeRight();
+
+      Sound.play(resources.sound.skid[0].random());
+
+      Vibrator.vibrate(5);
     }
-
-    Sound.play(resources.sound.skid[0].random());
-
-    Vibrator.vibrate(5);
   },
   onSwipeLeft: function() {
-    return;
-
     if(this.parameters.state === cc.Game.states.running) {
       this.player.onSwipeLeft();
+
+      Sound.play(resources.sound.skid[0].random());
+
+      Vibrator.vibrate(5);
     }
-
-    Sound.play(resources.sound.skid[0].random());
-
-    Vibrator.vibrate(5);
   },
   onTouch: function() {
     switch(this.parameters.state) {
@@ -497,6 +493,18 @@ cc.Game = Screen.extend({
         ),
         cc.CallFunc.create(this.counter.create, this.counter)
       )
+    );
+
+    /**
+     *
+     *
+     *
+     */
+    this.player.runAction(
+      cc.MoveTo.create(0.5, {
+        x: this.player.x,
+        y: Camera.s(cc.Game.positions[2])
+      })
     );
 
     Sound.play(resources.main.start);
@@ -590,7 +598,15 @@ cc.Game = Screen.extend({
    * 
    *
    */
-  onBack: function() {
+  onBack: function(force) {
+    if(!force) {
+      if(this.parameters.stack.current.onBack) {
+        if(!this.parameters.stack.current.onBack()) {
+          return false;
+        }
+      }
+    }
+
     this.changeView();
   },
   onPlay: function() {
@@ -609,6 +625,11 @@ cc.Game = Screen.extend({
     this.changeView(View4, View6);
   },
   onPlayOnline: function() {
+    if(Facebook.signed()) {
+
+    } else {
+      Enter.show(this);
+    }
   },
   onPlayArcade: function() {
     this.parameters.type = cc.Game.types.arcade;
@@ -838,10 +859,20 @@ cc.Game.finishs = {
   count: 0
 };
 
+cc.Game.positions = [
+  98.5,
+  112.5,
+  130.5,
+  149.4,
+  165.5,
+  181.5
+];
+
 cc.Game.loaded = false;
 cc.Game.created = false;
 cc.Game.onStart = function() {
   cc.Game.loaded = true;
 
   Finish = new cc.Finish;
+  Enter = new cc.Enter;
 };

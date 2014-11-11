@@ -36,7 +36,10 @@ Car = AnimatedEntity.extend({
      * Setting properties.
      *
      */
-    this.swipe = Camera.s(15);
+    this.setAnchorPoint({
+      x: 0.5,
+      y: 0.0
+    });
 
     /**
      *
@@ -63,6 +66,7 @@ Car = AnimatedEntity.extend({
       management: false,
       countered: false,
       state: false,
+      position: false,
       repair: 100,
       speed: {
         x: Camera.s(random(-100.0, -50.0)),
@@ -105,7 +109,7 @@ Car = AnimatedEntity.extend({
 
     if(this.parameters.management && this.getNumberOfRunningActions() < 1) {
       if(Game.parameters.state === cc.Game.states.animation || Game.parameters.state === cc.Game.states.prepare) {
-        var c = Camera.center.y - Camera.s(10);
+        var c = Camera.s(cc.Game.positions[2]);
         if(y > c || y < c) {
           y += Camera.s(y > c ? -0.1 : 0.1);
         }
@@ -129,14 +133,14 @@ Car = AnimatedEntity.extend({
    */
   effect1: function() {
     if(this.getNumberOfRunningActions() > 0) {
-      this.particles2.create().attr({x: this.x, y: this.y});
-      this.particles2.create().attr({x: this.x, y: this.y - this.getHeight() / 3});
-      this.particles2.create().attr({x: this.x + this.particles2.last().getWidth(), y: this.y});
-      this.particles2.create().attr({x: this.x + this.particles2.last().getWidth(), y: this.y - this.getHeight() / 3});
+      this.particles2.create().attr({x: this.x, y: this.y + this.getHeight() / 2});
+      this.particles2.create().attr({x: this.x, y: this.y + this.getHeight() / 5.7});
+      this.particles2.create().attr({x: this.x + this.particles2.last().getWidth(), y: this.y + this.getHeight() / 2});
+      this.particles2.create().attr({x: this.x + this.particles2.last().getWidth(), y: this.y + this.getHeight() / 5.7});
     }
   },
-  effect2: function() {
-    if(this.getNumberOfRunningActions() > 0 || probably(20)) {
+  effect2: function(p) {
+    if(p || probably(20)) {
       var x = this.getPosition().x;
       var y = this.getPosition().y;
 
@@ -291,6 +295,19 @@ Car = AnimatedEntity.extend({
     }*/
   },
   updateSkid: function(time) {
+    this.effect2(true);
+
+    Game.speed -= Camera.s(5);
+
+    if(Game.speed < Camera.s(100)) {
+      Game.changeState(cc.Game.states.finish);
+    } else {
+      this.move(time);
+    }
+
+    if(Game.speed < 0) {
+      Game.speed = 0;
+    }
   },
   updateCrash: function(time) {
     this.move(time);
@@ -331,8 +348,10 @@ Car = AnimatedEntity.extend({
    *
    */
   onSwipeUp: function() {
+    if(this.parameters.position >= 5) return false;
+
     var x = this.x;
-    var y = this.y + this.swipe;
+    var y = Camera.s(cc.Game.positions[++this.parameters.position]);
 
     this.runAction(
       cc.EaseSineOut.create(
@@ -348,10 +367,18 @@ Car = AnimatedEntity.extend({
         cc.RotateTo.create(0.1, 0)
       )
     );
+
+    if(this.parameters.position == 0 || this.parameters.position == 5) {
+      this.changeState(Car.states.skid);
+    } else {
+      this.changeState(Car.states.move);
+    }
   },
   onSwipeDown: function() {
+    if(this.parameters.position <= 0) return false;
+
     var x = this.x;
-    var y = this.y - this.swipe;
+    var y = Camera.s(cc.Game.positions[--this.parameters.position]);
 
     this.runAction(
       cc.EaseSineOut.create(
@@ -367,21 +394,14 @@ Car = AnimatedEntity.extend({
         cc.RotateTo.create(0.1, 0)
       )
     );
+
+    if(this.parameters.position == 0 || this.parameters.position == 5) {
+      this.changeState(Car.states.skid);
+    } else {
+      this.changeState(Car.states.move);
+    }
   },
   onSwipeRight: function() {
-    // TODO: Check available.
-    // TODO: Add wind animation.
-    var x = this.x + this.swipe;
-    var y = this.y;
-
-    this.runAction(
-      cc.EaseSineOut.create(
-        cc.MoveTo.create(0.2, {
-          x: x,
-          y: y
-        })
-      )
-    );
     this.runAction(
       cc.Sequence.create(
         cc.ScaleTo.create(0.1, 1.2, 1.0),
@@ -389,21 +409,12 @@ Car = AnimatedEntity.extend({
       )
     );
 
-    Game.speed += Camera.s(1);
+    Game.speed += Camera.s(50);
   },
   onSwipeLeft: function() {
-    // TODO: Check available.
-    var x = this.x - this.swipe;
-    var y = this.y;
-
-    this.runAction(
-      cc.EaseSineOut.create(
-        cc.MoveTo.create(0.3, {
-          x: x,
-          y: y
-        })
-      )
-    );
+    if(Game.speed > Camera.s(250)) {
+      Game.speed -= Camera.s(50);
+    }
   },
 
   /**
@@ -412,7 +423,7 @@ Car = AnimatedEntity.extend({
    *
    */
   getBoundingBoxToWorld: function() {
-    return cc.rectApplyAffineTransform(cc.rect(0, this.frames.height / 4, this.frames.width, this.frames.height / 2), this.getNodeToWorldTransform());
+    return cc.rectApplyAffineTransform(cc.rect(this.frames.width / 10, this.frames.height / 4, this.frames.width - this.frames.width / 10, this.frames.height / 2), this.getNodeToWorldTransform());
   },
 
   /**
@@ -422,11 +433,11 @@ Car = AnimatedEntity.extend({
    */
   onCollide: function(element1, element2) {
     element1.parameters.crash = {
-      x: Math.abs(element1.getPosition().x - element2.getPosition().x),
+      x: abs(element1.getPosition().x - element2.getPosition().x),
       y: element1.getPosition().y - element2.getPosition().y
     };
     element2.parameters.crash = {
-      x: Math.abs(element2.getPosition().x - element1.getPosition().x),
+      x: abs(element2.getPosition().x - element1.getPosition().x),
       y: element2.getPosition().y - element1.getPosition().y
     };
 

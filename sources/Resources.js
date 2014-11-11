@@ -39,6 +39,7 @@ var resources = {
     backgroundDecoration1: 'resource/Graphics/background-decoration-1.png',
     button1: 'resource/Graphics/button-1.png',
     button2: 'resource/Graphics/button-2.png',
+    button3: 'resource/Graphics/button-3.png',
     popup1: 'resource/Graphics/popup-background-1.png',
 
     data1: 'resource/Graphics/main-1.plist',

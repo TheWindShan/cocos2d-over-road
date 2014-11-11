@@ -78,7 +78,7 @@ Generator = Entity.extend({
     this.timelaps = {
       car: {
         fire: false,
-        time: 0.4,
+        time: 0.3,
         elapsed: 0
       }
     };
@@ -157,7 +157,7 @@ Generator = Entity.extend({
 
       donator.create().attr({
         x: Camera.width + donator.last().getWidth(),
-        y: random(Camera.center.y - Camera.s(30), Camera.center.y + Camera.s(30))
+        y: Camera.s(cc.Game.positions[random(1, 5, true)])
       });
 
       if(callbacks) {
@@ -263,7 +263,7 @@ Generator = Entity.extend({
     });
   },
   updateRoads: function(time) {
-    var donator = Game.parameters.state === cc.Game.states.animation ? this.donators.road[2] : this.donators.road.random();
+    var donator = this.donators.road[2];//Game.parameters.state === cc.Game.states.animation ? this.donators.road[2] : this.donators.road.random();
 
     /**
      *
@@ -283,10 +283,10 @@ Generator = Entity.extend({
   },
   updateRunning: function(time) {
     switch(Game.parameters.state) {
-      case cc.Game.states.prepare:
       case cc.Game.states.running:
       case cc.Game.states.animation:
       this.updateCars(time);
+      case cc.Game.states.prepare:
       case cc.Game.states.store:
       this.updateRoads(time);
       break;
@@ -297,7 +297,7 @@ Generator = Entity.extend({
      * Counting time for creation a new elements.
      *
      */
-    this.timelaps.car.elapsed += time;
+    this.timelaps.car.elapsed += time * (Game.speed / Camera.s(250));
     if(this.timelaps.car.elapsed >= this.timelaps.car.time) {
       this.timelaps.car.elapsed = 0;
       this.timelaps.car.fire = true;
@@ -316,6 +316,9 @@ Generator = Entity.extend({
       case cc.Game.states.animation:
       case cc.Game.states.store:
       this.updateRunning(time);
+      break;
+      case cc.Game.states.finish:
+      this.sortCars(this.getAll(this.donators.cars).concat([Game.player]));
       break;
     }
   },

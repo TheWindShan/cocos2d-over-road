@@ -331,13 +331,11 @@ cc.View7 = View.extend({
         );
       }
     } else {
-      Game.onBack();
+      Game.onBack(true);
     }
   },
   onBack: function() {
-    this.onMenu();
-
-    return false;
+    return this.onMenu();
   },
 
   /**

@@ -56,6 +56,8 @@ Player = Car.extend({
 
     this.setManagement(true);
     this.setLocalZOrder(cc.Game.layers.cars);
+
+    this.parameters.position = 2;
   },
   onDestroy: function() {
     this._super();

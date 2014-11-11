@@ -181,5 +181,9 @@ var languages = {
   'choose': [
     {title: 'TAKE IT', font: 'RetroVille NC', size: 5, dimensions: false},
     {title: 'ВЫБРАТЬ', font: 'RetroVille NC', size: 5, dimensions: false}
+  ],
+  'facebook-sign': [
+    {title: 'Please sign in with Facebook to play with friends!', font: 'RetroVille NC', size: 5, dimensions: [110, 32]},
+    {title: 'Пожалуйста войдите через Facebook чтобы играть с друзьями!', font: 'RetroVille NC', size: 5, dimensions: [110, 32]}
   ]
 };

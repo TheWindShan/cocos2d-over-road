@@ -43,6 +43,8 @@ cc.View3 = View.extend({
      * Create elements.
      *
      */
+    this.scroll = new ScrollView(cc.size(Camera.width, Camera.height / 1.5), this);
+
     this.button1 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onBack.bind(Game), 'back');
     this.button2 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onSettings.bind(Game), 'settings');
 
@@ -76,7 +78,11 @@ cc.View3 = View.extend({
     this.button1.setAliasTexParameters();
     this.button2.setAliasTexParameters();
 
-    this.text = new Text('description', this);
+    this.scroll.create().attr({
+      y: Camera.center.y - Camera.height / 2.5
+    });
+
+    this.text = new Text('description', this.scroll);
 
     this.text.setDimensions(cc.size(Camera.s(Camera.width * 0.8), 0));
     this.text.setOrientationConfig(new OrientationConfig({
@@ -93,8 +99,8 @@ cc.View3 = View.extend({
     }));
 
     this.text.create().attr({
-      x: Camera.center.x,
-      y: Camera.center.y - Camera.c(5).y
+      x: this.scroll.getContainer().width / 2,
+      y: this.scroll.getContainer().height / 2
     });
 
     this.shadow = new BackgroundColor(Game);
