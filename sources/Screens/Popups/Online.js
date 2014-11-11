@@ -21,7 +21,7 @@
  *
  */
 
-cc.Finish = Popup.extend({
+cc.Online = Popup.extend({
 
   /**
    *
@@ -36,17 +36,7 @@ cc.Finish = Popup.extend({
      * 
      *
      */
-    this.button1 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.onRestart.bind(this), 'play');
-    this.button2 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.onScores.bind(this), 'scores');
-    this.button3 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.onMenu.bind(this), 'menu');
-
-    this.button1.create().attr({x: this.size.center.x, y: this.size.center.y});
-    this.button2.create().attr({x: this.size.center.x, y: this.size.center.y - Camera.c(15).y});
-    this.button3.create().attr({x: this.size.center.x, y: this.size.center.y - Camera.c(30).y});
-
-    this.button1.setAliasTexParameters();
-    this.button2.setAliasTexParameters();
-    this.button3.setAliasTexParameters();
+    //
 
     /**
      *
@@ -105,21 +95,6 @@ cc.Finish = Popup.extend({
   },
   onHideFinish: function() {
     this._super();
-  },
-
-  /**
-   *
-   * 
-   *
-   */
-  onRestart: function() {
-    this.hide(Game.onRestart.bind(Game));
-  },
-  onScores: function() {
-    this.hide(Game.onScores.bind(Game));
-  },
-  onMenu: function() {
-    this.hide(Game.onMenu.bind(Game));
   },
 
   /**

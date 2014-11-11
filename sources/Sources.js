@@ -32,6 +32,7 @@ sources = sources.concat([
   "sources/Screens/Screens/Game.js",
   "sources/Screens/Popups/Finish.js",
   "sources/Screens/Popups/Enter.js",
+  "sources/Screens/Popups/Online.js",
   "sources/Views/Game/View.js",
   "sources/Views/Game/View1.js",
   "sources/Views/Game/View2.js",

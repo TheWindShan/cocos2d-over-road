@@ -129,6 +129,12 @@ cc.Enter = Popup.extend({
    *
    */
   sign: function() {
-    Facebook.sign();
+    Facebook.sign({
+      success: function() {
+        this.hide(function() {
+          Online.show(Game);
+        });
+      }.bind(this)
+    });
   }
 });

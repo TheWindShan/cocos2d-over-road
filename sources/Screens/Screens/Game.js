@@ -240,8 +240,6 @@ cc.Game = Screen.extend({
     }
   },
   restart: function(menu) {
-    Finish.hide();
-
     // TODO: Remove to the own class.
     this.splash = new BackgroundColor(this, cc.color.WHITE);
     this.splash.attr({
@@ -253,9 +251,11 @@ cc.Game = Screen.extend({
         cc.FadeIn.create(0.2),
         cc.DelayTime.create(0.2),
         cc.CallFunc.create(function() {
-          this.destroy(Entity.destroy.complete);
-
           Game.run(menu);
+        }.bind(this.splash)),
+        cc.FadeOut.create(0.1),
+        cc.CallFunc.create(function() {
+          this.destroy(Entity.destroy.complete);
         }.bind(this.splash))
       )
     );
@@ -350,18 +350,20 @@ cc.Game = Screen.extend({
    *
    */
   onKeyBack: function() {
-    if(this.parameters.stack.current.onBack) {
-      if(this.parameters.stack.current.onBack()) {
-        this.onBack();
+    if(this._super()) {
+      if(this.parameters.stack.current.onBack) {
+        if(this.parameters.stack.current.onBack()) {
+          this.onBack();
+        }
+
+        return;
       }
 
-      return;
+      this.onBack();
     }
-
-    this.onBack();
   },
   onKeyEscape: function() {
-    this.onBack();
+    this.onKeyBack();
   },
   onKeyUp: function() {
     this.onSwipeUp();
@@ -626,7 +628,7 @@ cc.Game = Screen.extend({
   },
   onPlayOnline: function() {
     if(Facebook.signed()) {
-
+      Online.show(this);
     } else {
       Enter.show(this);
     }
@@ -875,4 +877,5 @@ cc.Game.onStart = function() {
 
   Finish = new cc.Finish;
   Enter = new cc.Enter;
+  Online = new cc.Online;
 };

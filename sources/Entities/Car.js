@@ -107,7 +107,7 @@ Car = AnimatedEntity.extend({
     var x = this.x - this.parameters.speed.x * time - (this.parameters.management ? 0 : Game.speed) * time;
     var y = this.y - this.parameters.speed.y * time;
 
-    if(this.parameters.management && this.getNumberOfRunningActions() < 1) {
+    if(this.parameters.management) {
       if(Game.parameters.state === cc.Game.states.animation || Game.parameters.state === cc.Game.states.prepare) {
         var c = Camera.s(cc.Game.positions[2]);
         if(y > c || y < c) {
@@ -423,7 +423,10 @@ Car = AnimatedEntity.extend({
    *
    */
   getBoundingBoxToWorld: function() {
-    return cc.rectApplyAffineTransform(cc.rect(this.frames.width / 10, this.frames.height / 4, this.frames.width - this.frames.width / 10, this.frames.height / 2), this.getNodeToWorldTransform());
+    return cc.rectApplyAffineTransform(
+      cc.rect(this.frames.width / 10, 0, this.frames.width - this.frames.width / 10, this.frames.height / 3),
+      this.getNodeToWorldTransform()
+    );
   },
 
   /**
