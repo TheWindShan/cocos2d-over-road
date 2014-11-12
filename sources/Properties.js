@@ -37,11 +37,7 @@ var properties = {
     surname: 8,
     photo: 9
   },
-  best: {
-    mode1: 10,
-    mode2: 11,
-    mode3: 12
-  },
+  best: 10,
   cars: {
     current: 100,
     simple: 101,

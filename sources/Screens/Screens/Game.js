@@ -166,16 +166,13 @@ cc.Game = Screen.extend({
    *
    */
   setupFpsCounter: function() {
-    this.frames = new Text('frames', this);
-    this.frames.setOrientationConfig(new OrientationConfig({
-      landscape: {
-        x: -Camera.s(10),
-        y: Camera.s(5)
-      }
-    }));
+    this.frames = new Text('frames', this, {
+      x: cc.TEXT_ALIGNMENT_LEFT,
+      y: cc.VERTICAL_TEXT_ALIGNMENT_CENTER
+    });
     this.frames.create().attr({
       up: 0,
-      x: Camera.c(13).x,
+      x: Camera.c(5).x,
       y: Camera.height - Camera.c(5).y,
 
       zIndex: 1000
@@ -208,28 +205,7 @@ cc.Game = Screen.extend({
    *
    */
   completed: function(action) {
-    if(cc.Game.loaded) {
-      /*this.decoration1 = new Entity(resources.loading.decoration1, this);
-
-      this.decoration1.setAliasTexParameters();
-      this.decoration1.create().attr({
-        x: Camera.center.x,
-        y: Camera.center.y * 1.6,
-        zIndex: cc.Game.layers.top
-      });
-
-      this.run();
-
-      if(action) {
-        this.parameters.state = cc.Game.states.animation;
-
-        this.createView2(true);
-      } else {
-        this.parameters.state = cc.Game.states.prepare;
-
-        this.onPrepare(true);
-      }*/
-    } else {
+    if(!cc.Game.loaded) {
       if(this.complete) {
         View1.remove();
       } else {
@@ -655,8 +631,6 @@ cc.Game = Screen.extend({
     this.restart(false);
   },
   onScores: function() {
-    this.changeView();
-    this.restart();
   },
   onSound: function() {
     if(Music.enabled || Sound.enabled) {

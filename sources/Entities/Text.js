@@ -23,7 +23,6 @@
 
 Text.prototype.export = function() {
   this.setup = function() {
-
     var width;
 
     switch(cc.sys.platform) {

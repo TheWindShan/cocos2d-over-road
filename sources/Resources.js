@@ -23,7 +23,7 @@
 
 var resources = {
   loading: {
-    font1: 'resource/Fonts/RetroVille NC.ttf',
+    font1: 'resource/Fonts/Molot.ttf',
 
     background: 'resource/Graphics/background-1.png',
     decoration1en: 'resource/Graphics/background-decoration-1.0.png',
@@ -36,7 +36,12 @@ var resources = {
     background1: 'resource/Graphics/background-1.png',
     backgroundDecoration1en: 'resource/Graphics/background-decoration-1.0.png',
     backgroundDecoration1ru: 'resource/Graphics/background-decoration-1.1.png',
+    backgroundDecoration2en: 'resource/Graphics/background-decoration-2.0.png',
+    backgroundDecoration2ru: 'resource/Graphics/background-decoration-2.1.png',
     backgroundDecoration1: 'resource/Graphics/background-decoration-1.png',
+    backgroundDecoration2: 'resource/Graphics/background-decoration-2.png',
+    backgroundMedal: 'resource/Graphics/background-medal.png',
+    backgroundMedalHolder: 'resource/Graphics/background-medal-holder.png',
     button1: 'resource/Graphics/button-1.png',
     button2: 'resource/Graphics/button-2.png',
     button3: 'resource/Graphics/button-3.png',
