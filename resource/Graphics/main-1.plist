@@ -4,49 +4,23 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>background-decoration-2.png</key>
+            <key>background-road-part-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,0},{640,144}}</string>
+                <string>{{0,0},{320,167}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{640,144}}</string>
+                <string>{{0,0},{320,167}}</string>
                 <key>sourceSize</key>
-                <string>{640,144}</string>
-            </dict>
-            <key>background-decoration-3.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{0,144},{640,144}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{640,144}}</string>
-                <key>sourceSize</key>
-                <string>{640,144}</string>
-            </dict>
-            <key>background-decoration-4.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{0,288},{320,159}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{320,159}}</string>
-                <key>sourceSize</key>
-                <string>{320,159}</string>
+                <string>{320,167}</string>
             </dict>
             <key>text-panel.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{320,288},{122,32}}</string>
+                <string>{{0,167},{122,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -64,9 +38,9 @@
             <key>realTextureFileName</key>
             <string>main-1.png</string>
             <key>size</key>
-            <string>{640,447}</string>
+            <string>{320,199}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c17e2ef56062fecfc2595b6587ff82b2:17e78d4572009b7a133389841e680c9b:835b396ffa78eb41de25bd633a5de3c2$</string>
+            <string>$TexturePacker:SmartUpdate:76cb13681a5b8c0f18f585d014a0d1b9:a18736ddb7c201504d7cc54c7d37b784:835b396ffa78eb41de25bd633a5de3c2$</string>
             <key>textureFileName</key>
             <string>main-1.png</string>
         </dict>

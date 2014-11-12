@@ -47,7 +47,7 @@ cc.View1 = View.extend({
       x: 0,
       y: 0
     });
-    new BackgroundColor(Game, cc.color(199, 207, 162));
+    Game.addChild(new cc.LayerGradient(cc.color(3, 133, 193), cc.color(9, 172, 247), cc.p(0.5, 0.5)));
 
     /**
      *
@@ -108,7 +108,7 @@ cc.View1 = View.extend({
     Game.name = new Entity(resources.loading.decoration1, Game);
     Game.name.create().attr({
       x: Camera.center.x,
-      y: Camera.center.y * 1.6,
+      y: Camera.center.y * 1.4,
 
       zIndex: cc.Game.layers.top
     });

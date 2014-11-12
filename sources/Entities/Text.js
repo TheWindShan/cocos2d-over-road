@@ -32,11 +32,11 @@ Text.prototype.export = function() {
       break;
       case cc.sys.DESKTOP_BROWSER:
       case cc.sys.MOBILE_BROWSER:
-      width = Camera.r(1);
+      width = Camera.r(0.2);
       break;
     }
 
-    this.setColor(cc.color(138, 150, 109));
-    this.enableStroke(cc.color(115, 128, 64), width);
+    this.setColor(cc.color(255, 255, 255));
+    this.enableStroke(cc.color(0, 0, 0), width);
   };
 };

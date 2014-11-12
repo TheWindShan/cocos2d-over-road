@@ -98,22 +98,6 @@ cc.View7 = View.extend({
 
     this.panel.disableOrientationsChangesForChildren();
 
-    var width;
-
-    switch(cc.sys.platform) {
-      default:
-      case cc.sys.ANDROID:
-      width = Camera.r(2);
-      break;
-      case cc.sys.DESKTOP_BROWSER:
-      case cc.sys.MOBILE_BROWSER:
-      width = Camera.r(1);
-      break;
-    }
-
-    this.button4.text.setColor(cc.color.WHITE);
-    this.button4.text.enableStroke(cc.color(55, 174, 142), width);
-
     this.button4.setCascadeOpacityEnabled(true);
   },
 

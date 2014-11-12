@@ -7,7 +7,7 @@
             <key>car-01.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{256,2},{26,36}}</string>
+                <string>{{0,0},{26,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>car-02.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{286,2},{26,36}}</string>
+                <string>{{26,0},{26,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>car-03.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{316,2},{26,36}}</string>
+                <string>{{52,0},{26,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>car-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{346,2},{26,36}}</string>
+                <string>{{78,0},{26,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>car-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{48,54}}</string>
+                <string>{{104,0},{48,54}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,7 +72,7 @@
             <key>car-3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{54,2},{36,46}}</string>
+                <string>{{152,0},{36,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +85,7 @@
             <key>car-4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{163,2},{23,42}}</string>
+                <string>{{188,0},{23,42}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>car-5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{217,2},{35,40}}</string>
+                <string>{{211,0},{35,40}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -111,7 +111,7 @@
             <key>car-6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{190,2},{23,42}}</string>
+                <string>{{246,0},{23,42}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -124,7 +124,7 @@
             <key>car-7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{127,2},{32,42}}</string>
+                <string>{{269,0},{32,42}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -137,7 +137,7 @@
             <key>car-8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{94,2},{29,44}}</string>
+                <string>{{301,0},{29,44}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -150,7 +150,7 @@
             <key>particle-1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{127,48},{8,8}}</string>
+                <string>{{330,0},{8,8}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -163,7 +163,7 @@
             <key>particle-2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{54,52},{3,1}}</string>
+                <string>{{338,0},{3,1}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -181,9 +181,9 @@
             <key>realTextureFileName</key>
             <string>main-2.png</string>
             <key>size</key>
-            <string>{374,58}</string>
+            <string>{341,54}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:853ac6cbc99ba43c939891134a6ba226:ad9e09be794b4a065070ce805be4940b:0268e2143368a8b3fdb578d07c8470ab$</string>
+            <string>$TexturePacker:SmartUpdate:37588cb364df3caebd8b94c4d310e9ba:fc82b1e8760adef4cdc7036a17dc07b5:0268e2143368a8b3fdb578d07c8470ab$</string>
             <key>textureFileName</key>
             <string>main-2.png</string>
         </dict>

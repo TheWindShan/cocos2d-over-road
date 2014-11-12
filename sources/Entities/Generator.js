@@ -55,9 +55,7 @@ Generator = Entity.extend({
      */
     this.donators = {
       road: [
-        new Manager(2, new Road(resources.frames.backgroundDecoration2), this.holders.roads, false, cc.Game.layers.road),
-        new Manager(2, new Road(resources.frames.backgroundDecoration3), this.holders.roads, false, cc.Game.layers.road),
-        new Manager(2, new Road(resources.frames.backgroundDecoration4), this.holders.roads, false, cc.Game.layers.road)
+        new Manager(2, new Road(resources.frames.backgroundRoadPart1), this.holders.roads, false, cc.Game.layers.road)
       ],
       cars: [
         new Manager(2, new Car(resources.frames.car2), this.holders.cars, false, cc.Game.layers.cars),
@@ -263,7 +261,7 @@ Generator = Entity.extend({
     });
   },
   updateRoads: function(time) {
-    var donator = this.donators.road[2];//Game.parameters.state === cc.Game.states.animation ? this.donators.road[2] : this.donators.road.random();
+    var donator = this.donators.road[0];
 
     /**
      *

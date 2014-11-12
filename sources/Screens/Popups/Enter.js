@@ -40,14 +40,14 @@ cc.Enter = Popup.extend({
 
     this.text.create().attr({
       x: this.size.center.x,
-      y: this.size.center.y
+      y: this.size.center.y + Camera.c(10).y
     });
 
     this.button1 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.hide.bind(this), 'back');
     this.button2 = new Button(resources.main.button3, this, 1, 1, 1, 1, this.sign.bind(this));
 
     this.button1.create().attr({x: this.size.center.x, y: -Camera.c(10).y});
-    this.button2.create().attr({x: this.size.center.x, y: this.size.center.y - Camera.c(20).y});
+    this.button2.create().attr({x: this.size.center.x, y: this.size.center.y - Camera.c(15).y});
 
     this.button1.setAliasTexParameters();
     this.button2.setAliasTexParameters();

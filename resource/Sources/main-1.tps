@@ -188,10 +188,8 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>background-decoration-4.png</filename>
-            <filename>background-decoration-2.png</filename>
-            <filename>background-decoration-3.png</filename>
             <filename>text-panel.png</filename>
+            <filename>background-road-part-1.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

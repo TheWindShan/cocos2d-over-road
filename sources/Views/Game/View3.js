@@ -84,7 +84,6 @@ cc.View3 = View.extend({
 
     this.text = new Text('description', this.scroll);
 
-    this.text.setDimensions(cc.size(Camera.s(Camera.width * 0.8), 0));
     this.text.setOrientationConfig(new OrientationConfig({
       portrait: {
         on: function() {

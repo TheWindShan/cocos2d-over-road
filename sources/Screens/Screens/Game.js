@@ -172,7 +172,7 @@ cc.Game = Screen.extend({
     });
     this.frames.create().attr({
       up: 0,
-      x: Camera.c(5).x,
+      x: Camera.c(3).x,
       y: Camera.height - Camera.c(5).y,
 
       zIndex: 1000
@@ -447,7 +447,7 @@ cc.Game = Screen.extend({
     this.counter.setText('tap-to-ready');
     this.counter.attr({
       x: Camera.center.x,
-      y: Camera.center.y * 1.6,
+      y: Camera.center.y * 1.4,
 
       zIndex: cc.Game.layers.top
     });
@@ -467,7 +467,7 @@ cc.Game = Screen.extend({
     this.name.runAction(
       cc.Sequence.create(
         cc.EaseSineOut.create(
-          cc.MoveTo.create(0.5, cc.p(Camera.center.x, Camera.height + Camera.c(30).y))
+          cc.MoveTo.create(0.5, cc.p(Camera.center.x, Camera.center.y * 1.4))
         ),
         cc.CallFunc.create(this.counter.create, this.counter)
       )
@@ -537,7 +537,7 @@ cc.Game = Screen.extend({
     this.name.runAction(
       cc.Sequence.create(
         cc.EaseSineOut.create(
-          cc.MoveTo.create(0.5, cc.p(Camera.center.x, Camera.center.y * 1.6))
+          cc.MoveTo.create(0.5, cc.p(Camera.center.x, Camera.center.y * 1.4))
         )
       )
     );
@@ -673,11 +673,11 @@ cc.Game = Screen.extend({
     this.score++;
 
     this.counter.stopAllActions();
-    this.counter.setScale(cc.director.getContentScaleFactor());
+    this.counter.setScale(1.0);
     this.counter.runAction(
       cc.Sequence.create(
-        cc.ScaleTo.create(0.1, cc.director.getContentScaleFactor() + 0.1),
-        cc.ScaleTo.create(0.0, cc.director.getContentScaleFactor())
+        cc.ScaleTo.create(0.1, 1.1),
+        cc.ScaleTo.create(0.0, 1.0)
       )
     );
   },

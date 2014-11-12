@@ -72,9 +72,7 @@ var resources = {
   },
 
   frames: {
-    backgroundDecoration2: 'resource/Graphics/background-decoration-2.png',
-    backgroundDecoration3: 'resource/Graphics/background-decoration-3.png',
-    backgroundDecoration4: 'resource/Graphics/background-decoration-4.png',
+    backgroundRoadPart1: 'resource/Graphics/background-road-part-1.png',
     car01: 'resource/Graphics/car-01.png',
     car02: 'resource/Graphics/car-02.png',
     car03: 'resource/Graphics/car-03.png',

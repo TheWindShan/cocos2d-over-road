@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>3.5.3</string>
         <key>fileName</key>
-        <string>F:/Development/cocos2d-over-road/resources/Sources/main-2.tps</string>
+        <string>F:/Development/cocos2d-over-road/resource/Sources/main-2.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -56,7 +56,7 @@
         <key>jxrCompressionLevel</key>
         <uint>0</uint>
         <key>ditherType</key>
-        <enum type="SettingsBase::DitherType">Linear</enum>
+        <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -74,7 +74,7 @@
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
-        <uint>7</uint>
+        <uint>0</uint>
         <key>webpQualityLevel</key>
         <uint>101</uint>
         <key>textureSubPath</key>
@@ -98,11 +98,11 @@
             <int>-1</int>
         </QSize>
         <key>reduceBorderArtifacts</key>
-        <true/>
+        <false/>
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -153,7 +153,7 @@
         <key>forceIdenticalLayout</key>
         <false/>
         <key>outputFormat</key>
-        <enum type="SettingsBase::OutputFormat">RGBA5551</enum>
+        <enum type="SettingsBase::OutputFormat">RGBA8888</enum>
         <key>contentProtection</key>
         <struct type="ContentProtection">
             <key>key</key>
@@ -176,7 +176,7 @@
             <key>innerPadding</key>
             <uint>0</uint>
             <key>extrude</key>
-            <uint>2</uint>
+            <uint>0</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMode</key>
