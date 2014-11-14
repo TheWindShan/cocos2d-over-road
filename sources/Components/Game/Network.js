@@ -21,27 +21,14 @@
  *
  */
 
-var properties = {
-  purchases: {
+Network.onEcho = function(data) {
+  Game.onEcho(data);
+};
 
-  },
+cc.Game.prototype.onEcho = function(data) {
+  if(now() - this.parameters.echo.last > this.parameters.echo.time) {
+    new Echo(data);
 
-  music: 1,
-  sound: 2,
-  vibrate: 3,
-  language: 4,
-  ad: 5,
-  info: {
-    uid: 6,
-    name: 7,
-    surname: 8,
-    photo: 9
-  },
-  best: 10,
-  cars: {
-    current: 100,
-    simple: 101,
-    army: 102,
-    police: 103
+    this.parameters.echo.last = now();
   }
 };

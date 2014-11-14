@@ -30,6 +30,8 @@ App = {
   config: {
     debug: false,
     autostart: true,
+    application: 10,
+    platform: 0,
     graphics: {
       x: 640,
       y: 288
@@ -46,7 +48,10 @@ App = {
     languages: [
       {iso: 'en', id: 0},
       {iso: 'ru', id: 1}
-    ]
+    ],
+    info: {
+      store: 0
+    }
   }
 };
 
@@ -61,7 +66,7 @@ if(cc.sys.isNative) {
   switch(cc.sys.os) {
     case cc.sys.OS_IOS:
     case cc.sys.OS_OSX:
-      app = 'library/sources/App.js';
+    app = 'library/sources/App.js';
     break;
   }
 }

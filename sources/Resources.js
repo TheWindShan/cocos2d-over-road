@@ -42,10 +42,14 @@ var resources = {
     backgroundDecoration2: 'resource/Graphics/background-decoration-2.png',
     backgroundMedal: 'resource/Graphics/background-medal.png',
     backgroundMedalHolder: 'resource/Graphics/background-medal-holder.png',
+
     button1: 'resource/Graphics/button-1.png',
     button2: 'resource/Graphics/button-2.png',
     button3: 'resource/Graphics/button-3.png',
+
     popup1: 'resource/Graphics/popup-background-1.png',
+
+    holder1: 'resource/Graphics/holder-1.png',
 
     data1: 'resource/Graphics/main-1.plist',
     value1: 'resource/Graphics/main-1.png',

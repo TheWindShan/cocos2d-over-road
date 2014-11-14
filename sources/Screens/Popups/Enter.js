@@ -130,7 +130,7 @@ cc.Enter = Popup.extend({
    */
   sign: function() {
     Facebook.sign({
-      success: function() {
+      success: function(error, message) {
         this.hide(function() {
           Online.show(Game);
         });

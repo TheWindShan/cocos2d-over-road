@@ -50,6 +50,10 @@ cc.Game = Screen.extend({
       stack: {
         pushed: [],
         current: false
+      },
+      echo: {
+        last: 0,
+        time: 10 * 1000
       }
     };
     this.setupFpsCounter();
@@ -467,7 +471,7 @@ cc.Game = Screen.extend({
     this.name.runAction(
       cc.Sequence.create(
         cc.EaseSineOut.create(
-          cc.MoveTo.create(0.5, cc.p(Camera.center.x, Camera.center.y * 1.4))
+          cc.MoveTo.create(0.5, cc.p(Camera.center.x, Camera.center.y * 3))
         ),
         cc.CallFunc.create(this.counter.create, this.counter)
       )
@@ -521,6 +525,26 @@ cc.Game = Screen.extend({
         })
       )
     );
+
+    /**
+     *
+     * Work with network.
+     *
+     */
+    Network.send('echo', {
+      score: this.score
+    });
+
+    /**
+     *
+     * Work with api.
+     *
+     */
+    this.buttle.score = this.score;
+    this.buttle.time = now() - this.buttle.time;
+    this.buttle.winner = Data.get(false, properties.info.uid);
+
+    Api.call('buttles.send', this.buttle);
   },
   onRunning: function() {
     if(this.name.getNumberOfRunningActions() > 0) {
@@ -532,6 +556,21 @@ cc.Game = Screen.extend({
     this.counter.stopAllActions();
     this.counter.setVisible(true);
     this.counter.setText('counter');
+
+    /**
+     *
+     * Work with api.
+     *
+     */
+    this.buttle = {
+      type: 1,
+      time: now(),
+      participants: [
+        Data.get(false, properties.info.uid)
+      ],
+      winner: false,
+      score: 0
+    };
   },
   onAnimation: function() {
     this.name.runAction(
@@ -594,7 +633,7 @@ cc.Game = Screen.extend({
     this.changeView(View2, View7);
   },
   onRate: function() {
-    // TODO: Open rate window.
+    Media.openStore();
   },
   onMore: function() {
     this.changeView(View2, View3);

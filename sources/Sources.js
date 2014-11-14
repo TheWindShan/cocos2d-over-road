@@ -29,6 +29,7 @@ sources = sources.concat([
   "sources/Entities/Button.js",
   "sources/Entities/Text.js",
   "sources/Entities/Player.js",
+  "sources/Entities/Echo.js",
   "sources/Screens/Screens/Game.js",
   "sources/Screens/Popups/Finish.js",
   "sources/Screens/Popups/Enter.js",
@@ -40,5 +41,6 @@ sources = sources.concat([
   "sources/Views/Game/View4.js",
   "sources/Views/Game/View5.js",
   "sources/Views/Game/View6.js",
-  "sources/Views/Game/View7.js"
+  "sources/Views/Game/View7.js",
+  "sources/Components/Game/Network.js"
 ]);

@@ -163,16 +163,16 @@ var languages = {
     {title: '$1', font: 'Molot', size: 8, dimensions: false}
   ],
   'car-0': [
-    {title: 'Regular car. Has no special properties. Quite often breaks.', font: 'Molot', size: 3, dimensions: [50, 32]},
-    {title: 'Обычная машина. Не обладает специальными свойствами. Довольно часто ломается.', font: 'Molot', size: 3, dimensions: [50, 32]}
+    {title: 'Regular car.\nHas no special properties.', font: 'Molot', size: 3, dimensions: [50, 32]},
+    {title: 'Обычная машина.\nНе обладает специальными свойствами.', font: 'Molot', size: 3, dimensions: [50, 32]}
   ],
   'car-1': [
-    {title: 'Army vehicle. Moves confidently. Remains intact after two collisions.', font: 'Molot', size: 3, dimensions: [50, 32]},
-    {title: 'Армейская машина. Движется уверенно. Остается цела после двух столкновений.', font: 'Molot', size: 3, dimensions: [50, 32]}
+    {title: 'Army vehicle.\nMoves confidently. Remains intact after two collisions.', font: 'Molot', size: 3, dimensions: [50, 32]},
+    {title: 'Армейская машина.\nДвижется уверенно. Остается цела после двух столкновений.', font: 'Molot', size: 3, dimensions: [50, 32]}
   ],
   'car-2': [
-    {title: 'Police car. Campaigners try to skip it.', font: 'Molot', size: 3, dimensions: [50, 32]},
-    {title: 'Полицейская машина. Участники движения стараются пропустить ее.', font: 'Molot', size: 3, dimensions: [50, 32]}
+    {title: 'Police car.\nCampaigners try to skip it.', font: 'Molot', size: 3, dimensions: [50, 32]},
+    {title: 'Полицейская машина.\nУчастники движения стараются пропустить ее.', font: 'Molot', size: 3, dimensions: [50, 32]}
   ],
   'buy-car-1': [
     {title: 'BUY, $2.99', font: 'Molot', size: 3, dimensions: false},
@@ -209,5 +209,13 @@ var languages = {
   'medal': [
     {title: 'MEDAL', font: 'Molot', size: 5, dimensions: false},
     {title: 'НАГРАДА', font: 'Molot', size: 5, dimensions: false}
+  ],
+  'echo-1': [
+    {title: 'Player: $1 $2', font: 'Molot', size: 2, dimensions: false},
+    {title: '$1 $2', font: 'Molot', size: 2, dimensions: false}
+  ],
+  'echo-2': [
+    {title: 'Points: $1', font: 'Molot', size: 2, dimensions: false},
+    {title: 'Очков: $1', font: 'Molot', size: 2, dimensions: false}
   ]
 };

@@ -349,5 +349,7 @@ cc.View7 = View.extend({
     this.button4.runAction(
       cc.FadeTo.create(0.2, 255)
     );
+
+    Api.call('payments.visit');
   }
 });
