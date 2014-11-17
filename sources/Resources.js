@@ -40,8 +40,6 @@ var resources = {
     backgroundDecoration2ru: 'resource/Graphics/background-decoration-2.1.png',
     backgroundDecoration1: 'resource/Graphics/background-decoration-1.png',
     backgroundDecoration2: 'resource/Graphics/background-decoration-2.png',
-    backgroundMedal: 'resource/Graphics/background-medal.png',
-    backgroundMedalHolder: 'resource/Graphics/background-medal-holder.png',
 
     button1: 'resource/Graphics/button-1.png',
     button2: 'resource/Graphics/button-2.png',

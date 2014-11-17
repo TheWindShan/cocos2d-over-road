@@ -23,20 +23,7 @@
 
 Text.prototype.export = function() {
   this.setup = function() {
-    var width;
-
-    switch(cc.sys.platform) {
-      default:
-      case cc.sys.ANDROID:
-      width = Camera.r(2);
-      break;
-      case cc.sys.DESKTOP_BROWSER:
-      case cc.sys.MOBILE_BROWSER:
-      width = Camera.r(0.2);
-      break;
-    }
-
     this.setColor(cc.color(255, 255, 255));
-    this.enableStroke(cc.color(0, 0, 0), width);
+    this.enableStroke(cc.color(0, 0, 0), Camera.r(0.5));
   };
 };

@@ -37,13 +37,9 @@ cc.Finish = Popup.extend({
      *
      */
     this.decoration1 = new Entity(resources.main.backgroundDecoration2, this);
-    this.decorationMedalHolder = new Entity(resources.main.backgroundMedalHolder, this);
-    this.decorationMedal = new TiledEntity(resources.main.backgroundMedal, 2, 2, this);
 
     this.button1 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.onRestart.bind(this), 'retry');
     this.button2 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.onScores.bind(this), 'scores');
-
-    this.text3 = new Text('medal', this);
 
     this.text1 = new Text('best-score-title', this, {
       x: cc.TEXT_ALIGNMENT_RIGHT,
@@ -65,19 +61,12 @@ cc.Finish = Popup.extend({
 
     this.decoration1.create().attr({x: this.size.center.x, y: Camera.c(50).y});
 
-    this.decorationMedalHolder.create().attr({x: Camera.c(30).x, y: this.size.center.y - Camera.c(3).y});
-    this.decorationMedal.attr({x: Camera.c(30).x, y: this.size.center.y - Camera.c(3).y});
-
     this.button1.create().attr({x: this.size.center.x, y: this.size.center.y});
     this.button2.create().attr({x: this.size.center.x, y: this.size.center.y});
 
-    this.decorationMedalHolder.setAliasTexParameters();
-    this.decorationMedal.setAliasTexParameters();
     this.decoration1.setAliasTexParameters();
     this.button1.setAliasTexParameters();
     this.button2.setAliasTexParameters();
-
-    this.text3.create().attr({x: Camera.c(30).x, y: this.size.center.y + Camera.c(20).y});
 
     this.text1.create().attr({x: this.size.width - Camera.c(10).x, y: this.size.center.y + Camera.c(20).y});
     this.text2.create().attr({x: this.size.width - Camera.c(10).x, y: this.size.center.y - Camera.c(5).y});
@@ -182,8 +171,6 @@ cc.Finish = Popup.extend({
   },
   onHideFinish: function() {
     this._super();
-
-    this.decorationMedal.destroy();
   },
 
   /**

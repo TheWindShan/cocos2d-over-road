@@ -712,11 +712,11 @@ cc.Game = Screen.extend({
     this.score++;
 
     this.counter.stopAllActions();
-    this.counter.setScale(1.0);
+    this.counter.setScale(cc.director.getContentScaleFactor());
     this.counter.runAction(
       cc.Sequence.create(
-        cc.ScaleTo.create(0.1, 1.1),
-        cc.ScaleTo.create(0.0, 1.0)
+        cc.ScaleTo.create(0.1, cc.director.getContentScaleFactor() + 0.1),
+        cc.ScaleTo.create(0.0, cc.director.getContentScaleFactor())
       )
     );
   },
