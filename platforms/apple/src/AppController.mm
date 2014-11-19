@@ -29,6 +29,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "platform/ios/CCEAGLView-ios.h"
+#import "FacebookSDK/FacebookSDK.h"
 
 @implementation AppController
 
@@ -77,6 +78,8 @@ static AppDelegate s_sharedApplication;
 }
 
 - (void) applicationDidBecomeActive: (UIApplication *) application {
+  [FBAppCall handleDidBecomeActive];
+
   cocos2d::Director::getInstance()->resume();
 }
 
@@ -91,6 +94,10 @@ static AppDelegate s_sharedApplication;
 - (void) applicationWillTerminate: (UIApplication *) application {
 }
 
+- (BOOL) application: (UIApplication *) application openURL: (NSURL *) url sourceApplication: (NSString *) sourceApplication annotation: (id) annotation {
+  return [FBSession.activeSession handleOpenURL: url];
+}
+
 #pragma mark -
 #pragma mark Memory management
 
@@ -99,7 +106,7 @@ static AppDelegate s_sharedApplication;
 }
 
 - (void) dealloc {
-    [super dealloc];
+  [super dealloc];
 }
 
 #pragma mark -

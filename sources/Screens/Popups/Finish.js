@@ -171,8 +171,6 @@ cc.Finish = Popup.extend({
   },
   onHideFinish: function() {
     this._super();
-
-    this.decorationMedal.destroy();
   },
 
   /**
