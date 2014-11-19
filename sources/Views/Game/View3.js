@@ -98,8 +98,8 @@ cc.View3 = View.extend({
     }));
 
     this.text.create().attr({
-      x: this.scroll.getContainer().width / 2,
-      y: this.scroll.getContainer().height / 2
+      x: this.scroll.width / 2,
+      y: -this.scroll.height / 2
     });
 
     this.shadow = new BackgroundColor(Game);

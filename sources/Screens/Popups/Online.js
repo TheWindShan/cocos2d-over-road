@@ -29,14 +29,32 @@ cc.Online = Popup.extend({
    *
    */
   ctor: function() {
-    this._super(resources.main.popup1);
+    this._super(resources.main.popup2);
 
     /**
      *
      * 
      *
      */
-    //
+    this.view = new Entity(resources.main.view1);
+    this.scroll = new ScrollView(cc.size(this.getWidth(), this.getHeight()), this, this.view);
+
+    this.scroll.create();
+    this.view.create().setAliasTexParameters();
+
+    /**
+     *
+     * 
+     *
+     */
+    this.button1 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.hide.bind(this), 'back');
+    this.button2 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.random.bind(this), 'random');
+
+    this.button1.create().attr({x: this.size.center.x - Camera.c(30).x, y: this.size.center.y - Camera.c(40).y});
+    this.button2.create().attr({x: this.size.center.x + Camera.c(30).x, y: this.size.center.y - Camera.c(40).y});
+
+    this.button1.setAliasTexParameters();
+    this.button2.setAliasTexParameters();
 
     /**
      *
@@ -76,6 +94,21 @@ cc.Online = Popup.extend({
         y: Camera.center.y,
       })
     );
+
+    /**
+     *
+     * Get all facebook friends and append they to the list view.
+     *
+     */
+    Facebook.friends(function(elements) {
+
+      /**
+       *
+       * Get current facebook friend and create photo entity, name and surname texts.
+       *
+       */
+      this.scroll.addEntry(elements);
+    }.bind(this));
   },
   onHideStart: function() {
     this._super();
@@ -95,6 +128,8 @@ cc.Online = Popup.extend({
   },
   onHideFinish: function() {
     this._super();
+
+    this.scroll.clear();
   },
 
   /**
@@ -107,5 +142,13 @@ cc.Online = Popup.extend({
   },
   onExit: function() {
     this._super();
+  },
+
+  /**
+   *
+   * 
+   *
+   */
+  random: function() {
   }
 });

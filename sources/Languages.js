@@ -206,10 +206,6 @@ var languages = {
     {title: '$1', font: 'Molot', size: 4, dimensions: false},
     {title: '$1', font: 'Molot', size: 4, dimensions: false}
   ],
-  'medal': [
-    {title: 'MEDAL', font: 'Molot', size: 5, dimensions: false},
-    {title: 'НАГРАДА', font: 'Molot', size: 5, dimensions: false}
-  ],
   'echo-1': [
     {title: 'Player: $1 $2', font: 'Molot', size: 2, dimensions: false},
     {title: '$1 $2', font: 'Molot', size: 2, dimensions: false}
@@ -217,5 +213,21 @@ var languages = {
   'echo-2': [
     {title: 'Points: $1', font: 'Molot', size: 2, dimensions: false},
     {title: 'Очков: $1', font: 'Molot', size: 2, dimensions: false}
+  ],
+  'random': [
+    {title: 'RANDOM', font: 'Molot', size: 3, dimensions: false},
+    {title: 'СЛУЧАЙНЫЙ', font: 'Molot', size: 3, dimensions: false}
+  ],
+  'view-1': [
+    {title: '$1 $2', font: 'Molot', size: 2, dimensions: false},
+    {title: '$1 $2', font: 'Molot', size: 2, dimensions: false}
+  ],
+  'view-2': [
+    {title: 'ONLINE', font: 'Molot', size: 2, dimensions: false},
+    {title: 'ОНЛАЙН', font: 'Molot', size: 2, dimensions: false}
+  ],
+  'view-3': [
+    {title: 'OFFLINE', font: 'Molot', size: 2, dimensions: false},
+    {title: 'ОФФЛАЙН', font: 'Molot', size: 2, dimensions: false}
   ]
 };
