@@ -61,14 +61,4 @@ App = {
  * That's all - no more actions needed for launching game.
  *
  */
-var app = 'frameworks/library/sources/App.js';
-if(cc.sys.isNative) {
-  switch(cc.sys.os) {
-    case cc.sys.OS_IOS:
-    case cc.sys.OS_OSX:
-    app = 'library/sources/App.js';
-    break;
-  }
-}
-
-cc.loader.loadJs(app);
+ cc.loader.loadJs('cocos2d-tooflya-sdk/sources/App.js');
