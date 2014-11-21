@@ -1,3 +1,0 @@
-[submodule "frameworks"]
-	path = frameworks
-	url = git@github.com:IgorMats/cocos2d-tooflya-sdk.git

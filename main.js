@@ -51,7 +51,14 @@ App = {
     ],
     info: {
       store: 0
-    }
+    },
+
+    modules: [
+      "socketio",
+      "pluginx",
+      "plugin-facebook"
+    ],
+    facebook: 1531108227133554
   }
 };
 

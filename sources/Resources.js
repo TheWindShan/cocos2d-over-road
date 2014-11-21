@@ -46,8 +46,11 @@ var resources = {
     button3: 'resource/Graphics/button-3.png',
 
     popup1: 'resource/Graphics/popup-background-1.png',
+    popup2: 'resource/Graphics/popup-background-2.png',
 
     holder1: 'resource/Graphics/holder-1.png',
+
+    view1: 'resource/Graphics/view-1.png',
 
     data1: 'resource/Graphics/main-1.plist',
     value1: 'resource/Graphics/main-1.png',
