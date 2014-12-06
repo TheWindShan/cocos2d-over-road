@@ -170,10 +170,7 @@ cc.Game = Screen.extend({
    *
    */
   setupFpsCounter: function() {
-    this.frames = new Text('frames', this, {
-      x: cc.TEXT_ALIGNMENT_LEFT,
-      y: cc.VERTICAL_TEXT_ALIGNMENT_CENTER
-    });
+    this.frames = new Text('frames', this, Text.position.left);
     this.frames.create().attr({
       up: 0,
       x: Camera.c(3).x,
@@ -292,11 +289,11 @@ cc.Game = Screen.extend({
        * Create views.
        *
        */
-      new cc.View3;
+     /* new cc.View3;
       new cc.View4;
       new cc.View5;
       new cc.View6;
-      new cc.View7;
+      new cc.View7;*/
 
       /**
        *

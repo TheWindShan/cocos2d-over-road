@@ -22,7 +22,7 @@
  */
 
 Events.onStart = function() {
-  cc.director.runScene(new cc.Game);
+  cc.director.runScene(cc.TransitionFade.create(0.5, new cc.Game, cc.color.WHITE));
 };
 
 Events.onStop = function() {

@@ -200,7 +200,7 @@ Generator = Entity.extend({
     cars.sort(function(element1, element2) {
       return (element2.y + element2.getHeight() / 2) - (element1.y + element2.getHeight() / 2);
     });
-
+return false;
     /**
      *
      * Find collissions.

@@ -21,33 +21,48 @@
  *
  */
 
-Button.prototype.export = function() {
-  this.onHover = function() {
-    this.setCurrentFrameIndex(1);
-  };
-  this.onUnHover = function() {
-    this.setCurrentFrameIndex(0);
-  };
+/** @expose */
+tooflya = {};
 
-  this.onTouchStart = function() {
-    this.stopAllActions();
-    this.runAction(cc.ScaleTo.create(0.1, 0.95));
-
-    Sound.play(resources.main.button);
-  };
-  this.onTouchFinish = function(touch, e) {
-    this.stopAllActions();
-    this.runAction(
-      cc.Sequence.create(
-        cc.ScaleTo.create(0.1, 1.0),
-        touch ? cc.CallFunc.create(this.onTouch, this) : cc.DelayTime.create(0.5)
-      )
-    );
-  };
-
-  this.onTouch = function() {
-    if(this.action) {
-      this.action();
+/**
+ *
+ *
+ *
+ */
+App = {
+  release: false,
+  config: {
+    debug: false,
+    autostart: true,
+    application: 10,
+    platform: 0,
+    graphics: {
+      x: 640,
+      y: 288
+    },
+    server: {
+      url: 'www.tooflya.com',
+      port: 8083,
+      secure: false
+    },
+    orientations: {
+      portrait: true,
+      landscape: true
+    },
+    languages: [
+      {iso: 'en', id: 0},
+      {iso: 'ru', id: 1}
+    ],
+    info: {
+      store: 0,
+      ad: {
+        admob: {
+          android: {
+            banner: 'ca-app-pub-9938626987469103/8854183875',
+            interstitial: 'ca-app-pub-9938626987469103/1330917077'
+          }
+        }
+      }
     }
-  };
+  }
 };

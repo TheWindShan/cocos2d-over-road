@@ -1,0 +1,6 @@
+AddDefaultCharset utf-8
+Options +FollowSymLinks
+IndexIgnore */*
+
+RewriteEngine On 
+RewriteRule cocos2d-tooflya-sdk(.*) ../cocos2d-tooflya-sdk$1 [L]

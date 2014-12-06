@@ -19,53 +19,10 @@
  *
  * @version of cocos2d is 3.1 Final
  *
- */
-
-/**
- *
- *
- *
- */
-App = {
-  config: {
-    debug: false,
-    autostart: true,
-    application: 10,
-    platform: 0,
-    graphics: {
-      x: 640,
-      y: 288
-    },
-    server: {
-      url: 'www.tooflya.com',
-      port: 8083,
-      secure: false
-    },
-    orientations: {
-      portrait: true,
-      landscape: true
-    },
-    languages: [
-      {iso: 'en', id: 0},
-      {iso: 'ru', id: 1}
-    ],
-    info: {
-      store: 0
-    },
-
-    modules: [
-      "socketio",
-      "pluginx",
-      "plugin-facebook"
-    ],
-    facebook: 1531108227133554
-  }
-};
-
-/**
  *
  * Loading cocos2d-tooflya-sdk main javascript file.
  * That's all - no more actions needed for launching game.
  *
  */
- cc.loader.loadJs('cocos2d-tooflya-sdk/sources/App.js');
+cc.loader.loadJs('sources/App.js');
+cc.loader.loadJs('cocos2d-tooflya-sdk/sources/App.js');
