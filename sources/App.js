@@ -47,7 +47,7 @@ App = {
     },
     orientations: {
       portrait: true,
-      landscape: true
+      landscape: false
     },
     languages: [
       {iso: 'en', id: 0},

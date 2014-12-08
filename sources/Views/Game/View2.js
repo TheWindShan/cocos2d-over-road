@@ -151,7 +151,7 @@ cc.View2 = View.extend({
            * If View3 created need to correct postition of some elements.
            *
            */
-          if(View3) {
+          /*if(View3) {
             var y;
 
             switch(Orientation.orientation) {
@@ -165,7 +165,7 @@ cc.View2 = View.extend({
 
             View3.button1.y = Camera.c(y).y;
             View3.button2.y = Camera.c(y).y;
-          }
+          }*/
         }.bind(this),
         error: function() {
           cc.Game.ad.banner = false;
