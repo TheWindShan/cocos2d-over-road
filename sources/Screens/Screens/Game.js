@@ -289,11 +289,11 @@ cc.Game = Screen.extend({
        * Create views.
        *
        */
-     /* new cc.View3;
+      //new cc.View3;
       new cc.View4;
       new cc.View5;
       new cc.View6;
-      new cc.View7;*/
+      new cc.View7;
 
       /**
        *
@@ -624,7 +624,8 @@ cc.Game = Screen.extend({
     this.changeView();
   },
   onPlay: function() {
-    this.changeView(View2, View4);
+    //this.changeView(View2, View4);
+    this.onPlaySurvival();
   },
   onShop: function() {
     this.changeView(View2, View7);
@@ -654,11 +655,11 @@ cc.Game = Screen.extend({
   onPlaySurvival: function() {
     this.parameters.type = cc.Game.types.survival;
 
-    this.changeView(View6);
+    this.changeView(View2);
     this.changeState(cc.Game.states.prepare);
   },
   onSettings: function() {
-    this.changeView(View3, View5);
+    this.changeView(View2, View5);
   },
   onMenu: function() {
     this.restart(true);
@@ -708,12 +709,14 @@ cc.Game = Screen.extend({
 
     this.score++;
 
+    var scale = cc.director.getContentScaleFactor() > 1.0 ? 1.0 / cc.director.getContentScaleFactor() : cc.director.getContentScaleFactor();
+
     this.counter.stopAllActions();
-    this.counter.setScale(cc.director.getContentScaleFactor());
+    this.counter.setScale(scale);
     this.counter.runAction(
       cc.Sequence.create(
-        cc.ScaleTo.create(0.1, cc.director.getContentScaleFactor() + 0.1),
-        cc.ScaleTo.create(0.0, cc.director.getContentScaleFactor())
+        cc.ScaleTo.create(0.1, scale + 0.1),
+        cc.ScaleTo.create(0.0, scale)
       )
     );
   },
@@ -886,6 +889,6 @@ cc.Game.onStart = function() {
   cc.Game.loaded = true;
 
   Finish = new cc.Finish;
-  Enter = new cc.Enter;
-  Online = new cc.Online;
+  //Enter = new cc.Enter;
+  //Online = new cc.Online;
 };

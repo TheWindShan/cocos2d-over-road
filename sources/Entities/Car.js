@@ -422,11 +422,8 @@ Car = AnimatedEntity.extend({
    * 
    *
    */
-  getBoundingBoxToWorld: function() {
-    return cc.rectApplyAffineTransform(
-      cc.rect(this.frames.width / 10, 0, this.frames.width - this.frames.width / 10, this.frames.height / 3),
-      this.getNodeToWorldTransform()
-    );
+  getSimpleBoundingBox: function() {
+    return this._super(cc.rect(this.frames.width / 10, 0, this.frames.width - this.frames.width / 10, this.frames.height / 3));
   },
 
   /**

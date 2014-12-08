@@ -21,9 +21,30 @@
  *
  */
 
-Text.prototype.export = function() {
-  this.setup = function() {
-    this.setColor(cc.color(255, 255, 255));
-    this.enableStroke(cc.color(0, 0, 0), 10.0);
-  };
-};
+#include "AppDelegate.h"
+#include "cocos2d.h"
+#include "platform/android/jni/JniHelper.h"
+#include <jni.h>
+#include <android/log.h>
+#include "PluginJniHelper.h"
+
+using namespace cocos2d;
+
+/**
+ *
+ *
+ *
+ */
+void cocos_android_app_init (JNIEnv* env, jobject thiz) {
+  AppDelegate *pAppDelegate = new AppDelegate();
+
+  JavaVM* vm;
+  env->GetJavaVM(&vm);
+
+  /**
+   *
+   *
+   *
+   */
+  PluginJniHelper::setJavaVM(vm);
+}

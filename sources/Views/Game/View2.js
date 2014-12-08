@@ -57,7 +57,7 @@ cc.View2 = View.extend({
     this.button1 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onPlay.bind(Game), 'play');
     this.button2 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onShop.bind(Game), 'store');
     this.button3 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onRate.bind(Game), 'rate');
-    this.button4 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onMore.bind(Game), 'more');
+    this.button4 = new Button(resources.main.button1, this, 1, 1, 1, 2, Game.onSettings.bind(Game), 'settings');
 
     this.button1.setOrientationConfig(new OrientationConfig({
       landscape: {

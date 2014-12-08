@@ -200,7 +200,7 @@ Generator = Entity.extend({
     cars.sort(function(element1, element2) {
       return (element2.y + element2.getHeight() / 2) - (element1.y + element2.getHeight() / 2);
     });
-return false;
+
     /**
      *
      * Find collissions.
@@ -212,7 +212,7 @@ return false;
       this.counterCar(element1);
 
       cars.copy(element1).each(function(element2) {
-        if(element1.collideWidth(element2)) {
+        if(element1.collideWith(element2)) {
           element1.collide = element2;
           element1.onCollide(element1, element2);
         }

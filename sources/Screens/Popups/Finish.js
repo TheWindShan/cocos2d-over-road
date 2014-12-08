@@ -39,25 +39,13 @@ cc.Finish = Popup.extend({
     this.decoration1 = new Entity(resources.main.backgroundDecoration2, this);
 
     this.button1 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.onRestart.bind(this), 'retry');
-    this.button2 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.onScores.bind(this), 'scores');
+    this.button2 = new Button(resources.main.button1, this, 1, 1, 1, 2, this.onMenu.bind(this), 'menu');
 
-    this.text1 = new Text('best-score-title', this, {
-      x: cc.TEXT_ALIGNMENT_RIGHT,
-      y: cc.VERTICAL_TEXT_ALIGNMENT_CENTER
-    });
-    this.text10 = new Text('best-score', this, {
-      x: cc.TEXT_ALIGNMENT_RIGHT,
-      y: cc.VERTICAL_TEXT_ALIGNMENT_CENTER
-    });
+    this.text1 = new Text('best-score-title', this, Text.position.right);
+    this.text10 = new Text('best-score', this, Text.position.right);
 
-    this.text2 = new Text('current-score-title', this, {
-      x: cc.TEXT_ALIGNMENT_RIGHT,
-      y: cc.VERTICAL_TEXT_ALIGNMENT_CENTER
-    });
-    this.text20 = new Text('current-score', this, {
-      x: cc.TEXT_ALIGNMENT_RIGHT,
-      y: cc.VERTICAL_TEXT_ALIGNMENT_CENTER
-    });
+    this.text2 = new Text('current-score-title', this, Text.position.right);
+    this.text20 = new Text('current-score', this, Text.position.right);
 
     this.decoration1.create().attr({x: this.size.center.x, y: Camera.c(50).y});
 
@@ -68,11 +56,11 @@ cc.Finish = Popup.extend({
     this.button1.setAliasTexParameters();
     this.button2.setAliasTexParameters();
 
-    this.text1.create().attr({x: this.size.width - Camera.c(10).x, y: this.size.center.y + Camera.c(20).y});
-    this.text2.create().attr({x: this.size.width - Camera.c(10).x, y: this.size.center.y - Camera.c(5).y});
+    this.text1.create().attr({x: this.size.width - Camera.c(5).x, y: this.size.center.y + Camera.c(15).y});
+    this.text2.create().attr({x: this.size.width - Camera.c(5).x, y: this.size.center.y - Camera.c(10).y});
 
-    this.text10.create().attr({x: this.size.width - Camera.c(10).x, y: this.size.center.y + Camera.c(10).y});
-    this.text20.create().attr({x: this.size.width - Camera.c(10).x, y: this.size.center.y - Camera.c(15).y});
+    this.text10.create().attr({x: this.size.width - Camera.c(5).x, y: this.size.center.y + Camera.c(5).y});
+    this.text20.create().attr({x: this.size.width - Camera.c(5).x, y: this.size.center.y - Camera.c(20).y});
 
     /**
      *

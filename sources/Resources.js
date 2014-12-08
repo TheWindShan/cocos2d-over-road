@@ -58,22 +58,22 @@ var resources = {
     data2: 'resource/Graphics/main-2.plist',
     value2: 'resource/Graphics/main-2.png',
 
-    music1: 'resource/Music/music-1.wav',
-    button: 'resource/Sound/button.wav',
-    change: 'resource/Sound/change.wav',
-    start: 'resource/Sound/start.wav',
-    counter: 'resource/Sound/counter.wav',
+    music1: 'resource/Music/music-1.music',
+    button: 'resource/Sound/button.sound',
+    change: 'resource/Sound/change.sound',
+    start: 'resource/Sound/start.sound',
+    counter: 'resource/Sound/counter.sound',
 
-    skid01: 'resource/Sound/skid-01.wav',
-    skid02: 'resource/Sound/skid-02.wav',
-    skid03: 'resource/Sound/skid-03.wav',
-    skid04: 'resource/Sound/skid-04.wav',
+    skid01: 'resource/Sound/skid-01.sound',
+    skid02: 'resource/Sound/skid-02.sound',
+    skid03: 'resource/Sound/skid-03.sound',
+    skid04: 'resource/Sound/skid-04.sound',
 
-    crash01: 'resource/Sound/crash-01.wav',
-    crash02: 'resource/Sound/crash-02.wav',
-    crash03: 'resource/Sound/crash-03.wav',
-    crash04: 'resource/Sound/crash-04.wav',
-    crash05: 'resource/Sound/crash-05.wav'
+    crash01: 'resource/Sound/crash-01.sound',
+    crash02: 'resource/Sound/crash-02.sound',
+    crash03: 'resource/Sound/crash-03.sound',
+    crash04: 'resource/Sound/crash-04.sound',
+    crash05: 'resource/Sound/crash-05.sound'
   },
 
   frames: {
@@ -97,21 +97,23 @@ var resources = {
   sound: {
     skid: [
       [
-      'resource/Sound/skid-01.wav',
-      'resource/Sound/skid-02.wav',
-      'resource/Sound/skid-03.wav',
-      'resource/Sound/skid-04.wav'
+      'resource/Sound/skid-01.sound',
+      'resource/Sound/skid-02.sound',
+      'resource/Sound/skid-03.sound',
+      'resource/Sound/skid-04.sound'
       ]
     ],
     crash: [
-      'resource/Sound/crash-02.wav',
-      'resource/Sound/crash-03.wav',
-      'resource/Sound/crash-04.wav',
-      'resource/Sound/crash-05.wav'
+      'resource/Sound/crash-02.sound',
+      'resource/Sound/crash-03.sound',
+      'resource/Sound/crash-04.sound',
+      'resource/Sound/crash-05.sound'
     ]
   },
-
   system: {
-    manifest: 'resource/project.manifest'
+    manifest: {
+      release: 'resource/Manifests/release/project.manifest',
+      debug: 'resource/Manifests/debug/project.manifest'
+    }
   }
 };

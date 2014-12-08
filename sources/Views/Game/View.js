@@ -86,7 +86,7 @@ View = Background.extend({
      *
      */
     View2.push = 1;
-    View3.push = 0;
+    //View3.push = 0;
     View4.push = 0;
     View5.push = 0;
     View6.push = 0;
