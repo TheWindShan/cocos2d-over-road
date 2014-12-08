@@ -163,16 +163,16 @@ var languages = {
     {title: '$1', font: 'Molot', size: 300, dimensions: false}
   ],
   'car-0': [
-    {title: 'Regular car.\nHas no special properties.', font: 'Molot', size: 112, dimensions: [50, 32]},
-    {title: 'Обычная машина.\nНе обладает специальными свойствами.', font: 'Molot', size: 112, dimensions: [50, 32]}
+    {title: 'Regular car.\nHas no special properties.', font: 'Molot', size: 112, dimensions: [1800, 0]},
+    {title: 'Обычная машина.\nНе обладает специальными свойствами.', font: 'Molot', size: 112, dimensions: [1800, 0]}
   ],
   'car-1': [
-    {title: 'Army vehicle.\nMoves confidently. Remains intact after two collisions.', font: 'Molot', size: 112, dimensions: [50, 32]},
-    {title: 'Армейская машина.\nДвижется уверенно. Остается цела после двух столкновений.', font: 'Molot', size: 112, dimensions: [50, 32]}
+    {title: 'Army vehicle.\nMoves confidently. Remains intact after two collisions.', font: 'Molot', size: 112, dimensions: [1800, 0]},
+    {title: 'Армейская машина.\nДвижется уверенно. Остается цела после двух столкновений.', font: 'Molot', size: 112, dimensions: [1800, 0]}
   ],
   'car-2': [
-    {title: 'Police car.\nCampaigners try to skip it.', font: 'Molot', size: 112, dimensions: [50, 32]},
-    {title: 'Полицейская машина.\nУчастники движения стараются пропустить ее.', font: 'Molot', size: 112, dimensions: [50, 32]}
+    {title: 'Police car.\nCampaigners try to skip it.', font: 'Molot', size: 112, dimensions: [1800, 0]},
+    {title: 'Полицейская машина.\nУчастники движения стараются пропустить ее.', font: 'Molot', size: 112, dimensions: [1800, 0]}
   ],
   'buy-car-1': [
     {title: 'BUY, $2.99', font: 'Molot', size: 112, dimensions: false},
@@ -187,8 +187,8 @@ var languages = {
     {title: 'ВЫБРАТЬ', font: 'Molot', size: 112, dimensions: false}
   ],
   'facebook-sign': [
-    {title: 'Please sign in with Facebook to play with friends!', font: 'Molot', size: 112, dimensions: [40, 32]},
-    {title: 'Пожалуйста войдите через Facebook чтобы играть с друзьями!', font: 'Molot', size: 112, dimensions: [40, 32]}
+    {title: 'Please sign in with Facebook to play with friends!', font: 'Molot', size: 112, dimensions: [40, 0]},
+    {title: 'Пожалуйста войдите через Facebook чтобы играть с друзьями!', font: 'Molot', size: 112, dimensions: [40, 0]}
   ],
   'best-score-title': [
     {title: 'BEST', font: 'Molot', size: 186, dimensions: false},

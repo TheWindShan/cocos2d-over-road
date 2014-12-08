@@ -54,12 +54,11 @@ App = {
       {iso: 'ru', id: 1}
     ],
     info: {
-      store: 0,
       ad: {
         admob: {
           android: {
-            banner: 'ca-app-pub-9938626987469103/8854183875',
-            interstitial: 'ca-app-pub-9938626987469103/1330917077'
+            banner: 'ca-app-pub-9938626987469103/1407982276',
+            interstitial: 'ca-app-pub-9938626987469103/2884715472'
           }
         }
       }

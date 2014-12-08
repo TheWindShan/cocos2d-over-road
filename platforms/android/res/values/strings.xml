@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="name">Over Road</string>
-  <string name="google"></string>
+  <string name="google">107833796077</string>
   <string name="facebook">1531108227133554</string>
   <string name="admob">ca-app-pub-8261931576539455/6082644320</string>
-  <string name="ga_trackingId"></string>
+  <string name="ga_trackingId">UA-48406912-8</string>
 </resources>
